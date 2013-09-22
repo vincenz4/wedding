@@ -1,0 +1,71 @@
+body {
+  margin: 0px;
+  background-color: white;
+  font-family: shelley,Arial,Helvetica,sans-serif; 
+  text-align:left; 
+  font-size:12px;
+}
+/* Creates a wrapper for a series of columns*/
+.make-row() {
+  /* Negative margin the row out to align the content of columns*/
+  margin-left:  (@grid-gutter-width / -2);
+  margin-right: (@grid-gutter-width / -2);
+  /* Then clear the floated columns*/
+  .clearfix();
+}
+
+/*Generate the columns*/
+.make-column(@columns) {
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    /* Calculate width based on number of columns available*/
+    width: percentage(@columns / @grid-columns);
+  }
+  /* Prevent columns from collapsing when empty */
+  min-height: 1px;
+  /* Set inner padding as gutters instead of margin*/
+  padding-left:  (@grid-gutter-width / 2);
+  padding-right: (@grid-gutter-width / 2);
+}
+
+/* Generate the column offsets */
+.make-column-offset(@columns) {
+  @media (min-width: @grid-float-breakpoint) {
+    margin-left: percentage((@columns / @grid-columns));
+  }
+}.wrapper {
+  .make-row();
+}
+.content-main {
+  .make-column(8);
+}
+.content-secondary {
+  .make-column(3);
+  .make-column-offset(1);
+}
+/* Custom button
+-------------------------------------------------- */
+
+/* Override base .btn styles */
+/* Apply text and background changes to three key states: default, hover, and active (click). */
+.btn-ttc,
+.btn-ttc:hover,
+.btn-ttc:active {
+  color: yellow;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #000;
+}
+
+/* Apply the custom-colored gradients */
+/* Note: you'll need to include all the appropriate gradients for various browsers and standards. */
+.btn-ttc {
+  background-repeat: repeat-x;
+  background-image: linear-gradient(top, #009ED2 0%, #007DA7 100%);
+  ...
+}
+
+/* Set the hover state */
+/* An easy hover state is just to move the gradient up a small amount. Add other embellishments as you see fit. */
+.btn-ttc:hover {
+  background-position: 0 -15px;
+}

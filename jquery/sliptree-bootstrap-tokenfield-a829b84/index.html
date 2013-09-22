@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Tokenfield for Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" type="text/css" rel="stylesheet">
+    <link href="google-code-prettify/prettify.css" type="text/css" rel="stylesheet">
+    <link href="bootstrap-tokenfield/bootstrap-tokenfield.css" type="text/css" rel="stylesheet">
+    <link href="docs.css" type="text/css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap-tokenfield/bootstrap-tokenfield.js" charset="UTF-8"></script>
+
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-22737379-5', 'sliptree.github.io');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar" onload="prettyPrint()">
+
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="https://sliptree.github.io/bootstrap-tokenfield">Tokenfield for Bootstrap</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="https://sliptree.github.io/bootstrap-tokenfield">Docs and examples</a>
+              </li>
+              <li class="">
+                <a href="https://github.com/sliptree/bootstrap-tokenfield">Fork on Github</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead">
+  <div class="container">
+    <h1>Tokenfield for Bootstrap</h1>
+    <p class="lead">Bring your inputs to life with this tagging plugin.</p>
+    <div id="main-links">
+      <a id="download-master" href="https://github.com/sliptree/bootstrap-tokenfield/zipball/master" class="btn btn-primary">Download Development</a>
+      <script>
+      // Track downloads
+      $(function(){
+        $('#download-master').click(function(){
+          _trackEvent('Downloads', 'master');
+        });
+      });
+      </script>      
+    </div>
+  </div>
+</header>
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li><a href="#examples"><i class="icon-chevron-right"></i> Examples</a></li>
+          <li><a href="#usage"><i class="icon-chevron-right"></i> Usage</a></li>
+          <li><a href="#options"><i class="icon-chevron-right"></i> Options</a></li>
+          <li><a href="#markup"><i class="icon-chevron-right"></i> Markup</a></li>
+          <li><a href="#methods"><i class="icon-chevron-right"></i> Methods</a></li>
+          <li><a href="#events"><i class="icon-chevron-right"></i> Events</a></li>
+          <li><a href="#keyboard"><i class="icon-chevron-right"></i> Keyboard support</a></li>
+          <li><a href="#copy-paste"><i class="icon-chevron-right"></i> Copy &amp; paste support</a></li>          
+          <li><a href="#validation-states"><i class="icon-chevron-right"></i> Validation states</a></li>          
+        </ul>
+      </div>
+      <div class="span9">
+
+
+          <!-- Examples
+          ================================================== -->
+          <section id="tokenfield">
+            <div class="page-header">
+              <h1>Tokenfield <small>bootstrap-tokenfield.js</small></h1>
+            </div>
+
+
+            <h2 id="examples">Example</h2>
+            <p>Create elegant taggable fields with copy/paste and keyboard support.</p>
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+              <div class="control-group">
+                <input type="text" class="token-example-field" id="tokenfield-1" data-tokens="red,green,blue" />
+                <script type="text/javascript">
+                  $('#tokenfield-1').tokenfield()
+                </script>
+              </div>
+            </div>
+            <pre class="prettyprint linenums">&lt;input type="text" data-tokens="red,green,blue"&gt;</pre>
+            <pre class="prettyprint linenums">$('#tokenfield-1').tokenfield()</pre>
+
+            <hr class="bs-docs-separator">
+
+            <h2 id="usage">Usage</h2>
+
+            <h3>Trigger the tokenfield via JavaScript:</h3>
+            <pre class="prettyprint linenums">$('.tokenfield').typeahead()</pre>
+
+            <h3 id="options">Options</h3>
+            <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-tokens=""</code>.</p>
+            <table class="table table-bordered table-striped">
+              <thead>
+               <tr>
+                 <th style="width: 100px;">Name</th>
+                 <th style="width: 50px;">type</th>
+                 <th style="width: 100px;">default</th>
+                 <th>description</th>
+               </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>tokens</td>
+                  <td>string, array</td>
+                  <td>[ ]</td>
+                  <td>Tokens (or tags). Can be a string with comma-separated values (<code>"one,two,three"</code>), an array of strings (<code>["one","two","three"]</code>), or an array of objects (<code>[{ value: "one", label: "Einz" }, { value: "two", label: "Zwei" }]</code>)</td>
+                </tr>
+                <tr>
+                  <td>allowDuplicates</td>
+                  <td>boolean</td>
+                  <td>false</td>
+                  <td>Whether to allow duplicate tokens or not. A token is considered a duplicated if it's value matches an existing token's value. Therefore, it is possible to enter multiple tokens with the same label, if their values are diefferent.</td>
+                </tr>
+                <tr>
+                  <td>minLength</td>
+                  <td>int</td>
+                  <td>0</td>
+                  <td>Minimum length required for token value.</td>
+                </tr>
+                <tr>
+                  <td>minWidth</td>
+                  <td>int</td>
+                  <td>60</td>
+                  <td>Minimum input field width. In pixels.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="alert alert-info">
+              <strong>Heads up!</strong>
+              Options for individual tokenfields can alternatively be specified through the use of data attributes.
+            </div>
+
+            <h3 id="methods">Methods</h3>
+            <h4>.tokenfield(options)</h4>
+            <p>Initializes an input with a tokenfield.</p>
+            <pre class="prettyprint linenums">$('#myField').tokenfield();</pre>
+
+            <h4>.tokenfield('setTokens', tokens)</h4>
+            <p>Manually set the tokenfield content (replacing the old content)</p>
+            <pre class="prettyprint linenums">
+$('#myField').tokenfield('setTokens', 'blue,red,white');
+$('#myField').tokenfield('setTokens', ['blue','red','white']);
+$('#myField').tokenfield('setTokens', [{ value: "blue", label: "Blau" }, { value: "red", label: "Rot" }]);</pre>
+
+            <h4>.tokenfield('createToken', token)</h4>
+            <p>Manually create a token and append it to the input</p>
+            <pre class="prettyprint linenums">
+$('#myField').tokenfield('createToken', 'purple');
+$('#myField').tokenfield('createToken', { value: 'violet', label: 'Violet' });</pre>
+
+            <h4>.tokenfield('getTokens')</h4>
+            <p>Get an array of tokens from the input</p>
+            <pre class="prettyprint linenums">
+$('#myField').tokenfield('getTokens');</pre>
+
+            <h4>.tokenfield('getTokensList')</h4>
+            <p>Get a comma-separated list of the tokens from the input</p>
+            <pre class="prettyprint linenums">
+$('#myField').tokenfield('getTokensList');</pre>
+
+            <h3 id="events">Events</h3>
+            <p>Tokenfield exposes a few events for hooking into it's functionality.</p>
+
+            <table class="table table-bordered table-striped">
+              <thead>
+               <tr>
+                 <th style="width: 150px;">Event</th>
+                 <th>Description</th>
+               </tr>
+              </thead>
+              <tbody>
+               <tr>
+                 <td>beforeCreateToken</td>
+                 <td>This event fires when a token is all set up to be created, but before it is inserted into the DOM and event listeners are attached. You can use this event to manipulate token value and label by changing the appropriate values of <code>token</code> property of the event. See below for an example.</td>
+               </tr>
+               <tr>
+                 <td>afterCreateToken</td>
+                 <td>This event is fired after the token has been created. Here, <code>token</code> property of the event is also available, but is basically read-only.</td>
+               </tr>
+               <tr>
+                 <td>beforeEditToken</td>
+                 <td>This event is fired just before a token is about to be edited. This allows you to manipluate the input field value before it is created. Again, to do this, manipluate the <code>token</code> property of the event.</td>
+               </tr>
+               <tr>
+                 <td>removeToken</td>
+                 <td>This event is fired after a token is removed.</td>
+               </tr>
+              </tbody>
+            </table>
+
+<pre class="prettyprint linenums">
+$('#myTokenfield').on('beforeCreateToken', function (e) {
+  e.token.label = 'Something else'
+})
+
+$('#myTokenfield').on('afterCreateToken', function (e) {
+  e.token // token object with value and label
+})
+
+$('#myTokenfield').on('beforeEditToken', function (e) {
+  e.token.value = 'Edit this instead' 
+})
+
+$('#myTokenfield').on('removeToken', function () {
+  alert('Token removed!')
+})
+</pre>
+
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+              <input type="text" class="token-example-field" id="tokenfield-2" data-tokens="red,green,blue" />
+              <script type="text/javascript">
+                $('#tokenfield-2').tokenfield()
+                  .on('beforeCreateToken', function (e) {
+                    e.token.label = 'Something else'
+                  })
+                  .on('beforeEditToken', function (e) {
+                    e.token.value = 'Edit this instead'
+                  })
+                  .on('removeToken', function () {
+                    alert('Token removed!')
+                  })
+              </script>
+            </div>        
+
+            <h3 id="keyboard">Keyboard support</h3>
+            <p>Tokenfield includes support for manipulating tokens via keyboard</p>
+            <h4>left, right arrow keys</h4>
+            <p>Arrow keys will move between active tokens. Try it out: click on one of the tokens and press left and right arrow keys</p>
+            <h4>Backspace and delete</h4>
+            <p>You can delete a selected token with backspace or delete keys. Try it out now:</p>
+            <h4>Ctrl + A / Cmd + A, Ctrl + C / Cmd + C, Ctrl + V, Cmd + V</h4>
+            <p>If You have one token selected, you can select all tokens with the keyboard. Then, you can copy the tokens using keyboard. You can also paste tokens to another field.</p>
+
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+              <input type="text" class="token-example-field" id="tokenfield-3" data-tokens="red,green,blue" />
+              <script type="text/javascript">
+                $('#tokenfield-3').tokenfield()
+              </script>
+            </div>
+
+            <h3 id="copy-paste">Copy &amp; paste support</h3>
+            <p>You can copy tokens from a tokenfield and paste them to any other field as comma-separated values. When you paste to another tokenfield, they will become tokens there, aswell!</p>
+            <p>Try it out, copy the following to the field below: red,green,blue</p>
+
+            <div class="bs-docs-example" style="background-color: #f5f5f5;">
+              <input type="text" class="token-example-field" id="tokenfield-4" data-tokens="red,green,blue" />
+              <script type="text/javascript">
+                $('#tokenfield-4').tokenfield()
+              </script>
+            </div>
+
+            <h3 id="validation-states">Validation states</h3>
+            <p>Tokenfield also supports all the default validation states from Bootstrap</p>
+
+            <div class="bs-docs-example">
+
+              <form class="form-horizontal">
+                <div class="control-group warning">
+                  <label class="control-label" for="inputWarning">Input with warning</label>
+                  <div class="controls">
+                    <input type="text" class="token-example-field token-validation-example" id="inputWarning" data-tokens="red,green,blue">
+                    <span class="help-inline">Something may have gone wrong</span>
+                  </div>
+                </div>
+
+                <div class="control-group error">
+                  <label class="control-label" for="inputError">Input with error</label>
+                  <div class="controls">
+                    <input type="text" class="token-example-field token-validation-example" id="inputError" data-tokens="red,green,blue">
+                    <span class="help-inline">Please correct the error</span>
+                  </div>
+                </div>
+
+                <div class="control-group info">
+                  <label class="control-label" for="inputInfo">Input with info</label>
+                  <div class="controls">
+                    <input type="text" class="token-example-field token-validation-example" id="inputInfo" data-tokens="red,green,blue">
+                    <span class="help-inline">Can't add this tag</span>
+                  </div>
+                </div>
+
+                <div class="control-group success">
+                  <label class="control-label" for="inputSuccess">Input with success</label>
+                  <div class="controls">
+                    <input type="text" class="token-example-field token-validation-example" id="inputSuccess" data-tokens="red,green,blue">
+                    <span class="help-inline">Woohoo!</span>
+                  </div>
+                </div>
+              </form>
+
+              <script type="text/javascript">
+                $('.token-validation-example').tokenfield()
+              </script>
+            </div>
+
+          </section>
+
+        </section>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>Built by <a href="https://github.com/ragulka" target="_blank">@ragulka</a> from <a href="https://sliptree.com" target="_blank">Sliptree</a>
+        <p>Sliptree 2013</p>
+        <ul class="footer-links">
+          <li><a href="https://github.com/sliptree/bootstrap-tokenfield/issues?state=open">Issues</a></li>
+          <li class="muted">&middot;</li>
+          <li><a href="https://github.com/sliptree/bootstrap-tokenfield">Fork</a></li>
+        </ul>
+      </div>
+    </footer>
+
+  </body>
+</html>

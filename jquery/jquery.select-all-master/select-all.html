@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Select All Checkbox - jQuery Plugin</title>
+<script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+<script src="jquery.select-all.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.selectall('#selectall', '.case');
+});
+</script>
+</head>
+<body>
+<h1>Select All Checkbox - jQuery Plugin</h1>
+<br>
+<table border="1">
+<tr>
+<th><input type="checkbox" id="selectall" value="sel-all"/></th>
+<th>JS Libraries</th>
+<th>Rating</th>
+</tr>
+<tr>
+<td align="center"><input type="checkbox" class="case" name="case" value="1"/></td>
+<td>jQuery</td>
+<td>5</td>
+</tr>
+<tr>
+<td align="center"><input type="checkbox" class="case" name="case" value="2"/></td>
+<td>ExtJS</td>
+<td>4</td>
+</tr>
+<tr>
+<td align="center"><input type="checkbox" class="case" name="case" value="3"/></td>
+<td>Dojo</td>
+<td>3</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,120 @@
+{% extends "./base.html" %}
+
+{% block styles %}
+	{% if DEBUG_ENABLE %}
+	    <link rel="stylesheet" href="./static/css/blueimp-gallery.css">
+	{% else %}
+    	<link rel="stylesheet" href="./static/css/blueimp-gallery.min.css">
+	{% endif %}
+	<style type="text/css">
+	.thumbnail_palazzo {
+	  height: 319px;
+	  width: auto;
+	  max-height: 319px;
+	  max-width: 300px;
+	}    
+	</style>	
+{% endblock styles %}
+
+{% block beforeContainerDiv %}
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+{% endblock beforeContainerDiv %}
+
+{% block content %}
+
+<div id="links">
+    <a href="./static/img/palazzo/palazzo_1_big.jpg" title=""></a>
+    <a href="./static/img/palazzo/palazzo_2_big.jpg" title=""></a>
+    <a href="./static/img/palazzo/palazzo_3_big.jpg" title=""></a>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <p>
+      <span class="font_7">{% trans palazzo, descrizione_corta %}</span>
+    </p>
+  </div>
+</div>
+
+ <div class="row-fluid font_7">
+    <div class="span4">
+     <div class="thumbnail_palazzo" style="border: 1px solid rgb(175, 203, 224); background-image: url('./static/img/palazzo/palazzo_3_small.jpg'); background-repeat:no-repeat; background-position: 0px; margin: 2px 0px 2px 0px;" onmouseover="javascript:showDiv('palazzo_2')" onmouseout="javascript:hideDiv('palazzo_2');">
+       <div id="palazzo_2" class="thumbnail_palazzo" style="overflow: hidden; text-overflow: ellipsis; background-position:0; background-color: rgba(67, 75, 84, 0.6) " onclick="javascript:showGallery(2);">                  
+         <p class="font_6" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-height: 32px; padding-top: 2px; padding-left: 2px; padding-right: 2px;padding-bottom: 2px;"></p>
+       </div> 
+     </div>
+   </div>
+    <div class="span4">
+     <div class="thumbnail_palazzo" style="border: 1px solid rgb(175, 203, 224); background-image: url('./static/img/palazzo/palazzo_2_small.jpg'); background-repeat:no-repeat; background-position: 0px; margin: 2px 0px 2px 0px;" onmouseover="javascript:showDiv('palazzo_1')" onmouseout="javascript:hideDiv('palazzo_1');">
+       <div id="palazzo_1" class="thumbnail_palazzo" style="overflow: hidden; text-overflow: ellipsis; background-position:0; background-color: rgba(67, 75, 84, 0.6) " onclick="javascript:showGallery(2);">                  
+         <p class="font_6" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-height: 32px; padding-top: 2px; padding-left: 2px; padding-right: 2px;padding-bottom: 2px;"></p>
+       </div> 
+     </div>
+   </div>
+    <div class="span4">
+     <div class="thumbnail_palazzo" style="border: 1px solid rgb(175, 203, 224); background-image: url('./static/img/palazzo/palazzo_1_small.jpg'); background-repeat:no-repeat; background-position: 0px; margin: 2px 0px 2px 0px;" onmouseover="javascript:showDiv('palazzo_0')" onmouseout="javascript:hideDiv('palazzo_0');">
+       <div id="palazzo_0" class="thumbnail_palazzo" style="overflow: hidden; text-overflow: ellipsis; background-position:0; background-color: rgba(67, 75, 84, 0.6) " onclick="javascript:showGallery(2);">                  
+         <p class="font_6" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-height: 32px; padding-top: 2px; padding-left: 2px; padding-right: 2px;padding-bottom: 2px;"></p>
+       </div> 
+     </div>
+   </div>
+ </div>
+
+<br>
+
+<div class="row-fluid">
+  <div class="span12">
+    {% trans palazzo, descrizione_lunga %}
+  </div>
+</div>
+
+<br>
+<br>
+
+{% endblock content %}
+
+
+{% block scripts %}
+
+{% if DEBUG_ENABLE %}
+	<script src="./static/js/blueimp-gallery.js"></script>
+{% else %}
+	<script src="./static/js/blueimp-gallery.min.js"></script>
+{% endif %}
+
+<script type="text/javascript">
+	function initPage(){
+		//Imposto ad invisibile tutti i div dell'appartamento Paola e Francesca
+		for (var i = 0; i <= 2; i++) {
+		  document.getElementById('palazzo_'+i).style.visibility = 'hidden';
+		};
+	}
+
+	function showDiv(divName){
+	  document.getElementById(divName).style.visibility = 'visible';
+	}
+	
+	function hideDiv(divName){
+	  document.getElementById(divName).style.visibility = 'hidden';
+	}
+
+	function showGallery(indice){
+	  var links = document.getElementById('links').getElementsByTagName('a');
+	  options = {index: links[indice]};
+	
+	  if (blueimp.Gallery(links, options)) {
+          return false;
+      }
+	};
+</script>
+
+{% endblock scripts %}
+

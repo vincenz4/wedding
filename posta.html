@@ -35,15 +35,11 @@
   </head>
   
   <body style="background-image:url(background.png); background-repeat: no-repeat; background-position: center;background-attachment:fixed;">
-	<div class="masthead font_7">
-		<!--masthead content
-		<div class="intestazione"></div>-->
-	  
-	</div>
-	<!--header -->
-	<div class="page-header centra">
-		<h1 class="font_2"><img src="./img/fedi-tr.png" class="img-responsive" alt="Responsive image">11 Maggio 2014</h1>
-	</div>
+	<div class="container">
+		<!--header -->
+			<div class="page-header centra">
+				<p class="font_2"><img src="./img/fedi-tr.png" class="img-responsive" alt="Responsive image">11 Maggio 2014</p>
+			</div>
 	<div class="container">
 		<div class="container-fluid">
 			<div class="row-fluid">
@@ -52,60 +48,81 @@
 					<ul class="nav nav-pills font_7">
 						<li></li>
 						<li><a href="./home.html">Un po' di noi</a></li>
-						<li><a href="./info.html">Qualcosa da sapere</a></li>
-						<!-- <li><a href="#">Appunti e Note</a></li> -->
 						<li><a href="./info.html">Organizziamoci</a></li>
 						<li><a href="./gallery.html">Istantanee</a></li>
+						<li><a href="./lista-nozze.html">Lista Nozze</a></li>
 						<li class="active"><a href="#">Angolo della posta</a></li>
 						<!-- <li><a href="#">Angolo della posta <span class="glyphicon glyphicon-envelope"></span></a></li> -->
 					</ul>
 				</div>
+				
 				<p class="spazio"></p>
 				<p class="spazio"></p>
-				<div class="span4 offset7"><img src="./img/posta.png" class="img-responsive border_img img-rounded" alt="Responsive image">
-				<p class="spazio"></p>
-				<p class="spazio"></p>
+				
+				
+				<div class="table-responsive">
+					<table class="table">
+					<!-- <table class="table table-w"> -->
+						<tbody>
+							<tr>
+								<div class="row span5 offset4"><img src="./img/posta.png" class="img-responsive border_img img-rounded" alt="Responsive image">
+									<p class="spazio"></p>
+									<p class="spazio"></p>
+								</div>
+							</tr>
+							<tr>
+								<td style="border-top: none">
+									<div class="row span6 offset3 font_7">	
+										<label class="font_2 centra">Bacheca</label>
+										<form role="form">
+											<div class="form-group">
+												<label>Messaggio*</label>
+												<textarea class="form-control" rows="4" placeholder="Inserisci messaggio"></textarea>
+											</div>
+											<button type="submit" class="btn btn-default">Invio</button>
+											<p class="spazio"></p>
+										</form>
+									</div>
+								</td>
+								<td style="border-top: none">									
+									<div class="row span6 offset3 font_7">
+										<label class="font_2 centra">Contattaci</label>									
+										<form role="form">
+											  <div class="form-group">
+												<label>Cognome e Nome *</label>
+												<input type="text" class="form-control" placeholder="Inserisci Cognome e Nome">
+											  </div>					  
+											  <div class="form-group">
+												<label for="exampleInputPassword1">Telefono</label>
+												<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Inserisci Telefono">
+											  </div>
+											  <div class="form-group">
+												<label for="exampleInputEmail1">E-Mail *</label>
+												<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Inserisci email">
+											  </div>
+											  <div class="form-group">
+												<label>Messaggio*</label>
+												<textarea class="form-control" rows="4" placeholder="Inserisci messaggio"></textarea>
+											  </div>
+											  <button type="submit" class="btn btn-default">Invio</button>
+											  <p class="spazio"></p>
+										</form>
+									</div>	
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 				
-				<div class="row span5 offset6 font_7">				
-				<form role="form">
-					  <div class="form-group">
-						<label for="exampleInputEmail1">Cognome e Nome *</label>
-						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Inserisci Cognome e Nome">
-					  </div>					  
-					  <div class="form-group">
-						<label for="exampleInputPassword1">Telefono</label>
-						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Inserisci Telefono">
-					  </div>
-					  <div class="form-group">
-						<label for="exampleInputEmail1">E-Mail *</label>
-						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Inserisci email">
-					  </div>
-					  <div class="form-group">
-						<label for="exampleInputFile">File input</label>
-						<input type="file" id="exampleInputFile">	
-					  </div>
-					  <div class="checkbox">
-						<label>
-						  <input type="checkbox"> Check
-						</label>
-					  </div>
-					  <div class="form-group">
-						<label>Messaggio*</label>
-						<textarea class="form-control" rows="4" placeholder="Inserisci messaggio"></textarea>
-					  </div>
-					  <button type="submit" class="btn btn-default">Invio</button>
-					  <p class="spazio"></p>
-				</form>
-				</div>
+				
+
 			</div>
-			
 		</div> 
 		<hr class="featurette-divider">	
 		<footer>
 		   <p>
 			 <img src="./img/mini-logo-fedi-tr.png"></img><span class="font_8"> Sposi 11 Maggio 2014 | </span>
-			 <span class="font_9 bold">Cel: +393423254072 ~ +393356820621</span>
+			 <span class="font_9 bold">Cel: +393423254072 (Vi) ~ +393356820621 (Fra)</span>
 		   </p>
 		</footer>
 		

@@ -1,0 +1,460 @@
+{% extends "./base.html" %}
+
+{% block styles %}
+	{% if DEBUG_ENABLE %}
+	    <link rel="stylesheet" href="./static/css/blueimp-gallery.css">
+	{% else %}
+    	<link rel="stylesheet" href="./static/css/blueimp-gallery.min.css">
+	{% endif %}
+	
+ 	<style type="text/css">
+ 		.titolo_2{
+			color: rgb(175, 203, 224);
+			overflow: hidden; 
+			text-overflow: ellipsis; 
+			white-space: nowrap; 
+			max-height: 32px; 
+			padding-top: 5px; 
+			padding-left: 10px; 
+ 		}
+ 	
+		div.background_div:hover {
+		    opacity: 1;
+		    visibility: visible;
+		    -webkit-transition: opacity 0.4s ease-out;
+		    -moz-transition: opacity 0.4s ease-out;
+		    -o-transition: opacity 0.4s ease-out;
+		    transition: opacity 0.4s ease-out;
+		}
+		 	
+		.background_div{
+			overflow: hidden; 
+			text-overflow: ellipsis; 
+			background-position:0; 
+			background-color: rgba(57, 114, 155, 0.8);
+		    visibility: visible;
+		    -webkit-transition: opacity 0.4s ease-out;
+		    -moz-transition: opacity 0.4s ease-out;
+		    -o-transition: opacity 0.4s ease-out;
+		    transition: opacity 0.4s ease-out;
+		    opacity: 0; 
+		}
+	  
+ 	  .table{
+        border-spacing:0 4px;
+        border-collapse:separate;
+      }
+      .table tr {
+        background-color: rgba(197, 204, 212, 0.439216);
+      }
+      .table td {
+         text-align: center;   
+         border-top: none;
+      }
+      .td_end{
+         background-color: rgb(67, 75, 84); 
+      }
+      .td_end > a{
+         color:rgb(197, 204, 212); 
+      }
+ 	</style>
+	
+{% endblock styles %}
+
+{% block beforeContainerDiv %}
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+	<div class="slides"></div>
+    
+	<h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <!-- a class="play-pause"></a>
+    <ol class="indicator"></ol-->
+</div>
+{% endblock beforeContainerDiv %}
+
+{% block content %}
+
+<div id="paolo_links">
+{% for obj in paoloObjList %}
+    <a href="{{ obj.file }}_BIG.jpg" title="{{ obj.titoloSlide | translate | capitalize }}"></a>
+{% endfor %}
+</div>
+
+<div id="francesca_links">
+{% for obj in francescaObjList %}
+    <a href="{{ obj.file }}_BIG.jpg" title="{{ obj.titoloSlide | translate | capitalize }}"></a>
+{% endfor %}
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <p><span class="font_7">{% trans appartamenti_tariffe, titolo %}</span>
+    </p>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="row-fluid">
+  <div class="span12">
+    <p><span class="font_6">PAOLO</span></p>
+    <p><span class="font_7"><b>{% trans appartamenti_tariffe, titolo_paolo %}</b></span></p>
+  </div>
+</div>
+
+<!-- Imposto le Thumbnail -->
+<div class="row-fluid">
+	<div class="span6 thumbnailImg_1_raw">
+		<p><img src="./static/img/appartamenti-tariffe/paolo_old/Paolo_thumb_Grande.jpg" alt="affitto appartamenti Firenze, vacanze italia Firenze"></p>
+	</div>
+  	<div class="span6">
+	    <div class="row-fluid">
+		{% for obj in paoloObjList %}
+			{% if loop.counter0 < 8  %}
+		      <div class="span3">
+		        <div class="thumbnail_2_raw" style="background-size: cover; background-image: url('{{ obj.file }}.jpg'); background-repeat:no-repeat; background-position: {{ obj.backgroundShiftX }} {{ obj.backgroundShiftY }}; margin: 4px -2px 4px -2px;">
+		          <div class="thumbnail_2_raw background_div" onclick="javascript:showGallery('paolo', {{ loop.counter0 }});">                  
+		            <p class="font_6 titolo_2"><span>{{ obj.titoloThumb | translate |capitalize }}</span></p>
+		          </div> 
+		        </div>
+		      </div>
+		      {% if loop.counter|module4 %}
+            {% if loop.counter0 < 7 %}
+    			    </div>
+    			    <div class="row-fluid">
+            {% endif %}
+		      {% endif %}
+	      {% endif %}
+		{% endfor %}
+	    </div>
+    </div>
+  </div>
+
+<br>
+
+
+<div class="row-fluid">
+  <div class="span12">{% trans appartamenti_tariffe, descrizione_paolo %}
+  </div>
+</div>
+
+<br>
+
+<div class="row-fluid">
+  <div class="span4">
+    <p><span class="font_9"><b>{% trans appartamenti_tariffe, distanza_titolo %}</b></span></p>
+    <p>
+      <span class="font_9">
+        <ul class="unstyled font_9">
+          {% trans appartamenti_tariffe, distanze %}
+        </ul>
+      </span>
+    </p>
+  </div>
+  <div class="span4">
+    <p><span class="font_9"><b>{% trans appartamenti_tariffe, dotazioni_titolo %}</b></span></p>
+    <p>
+      <span class="font_9">
+        <ul class="unstyled font_9">
+          {% trans appartamenti_tariffe, paolo_dotazioni %}
+        </ul>
+      </span>
+    </p>
+  </div>
+ <div class="span4">
+    <div class="row-fluid">
+      <div class="span12 font_9">
+        <table class="table">
+          <tbody>
+            <tr id="td_paolo_1">
+              <td onmouseover="javascript:overBgColor('paolo_1');" onmouseout="javascript:outBgColor('paolo_1');">
+                <a href="./contatti{% linkpagine %}"><span id="span_paolo_1" class="font_9">{% trans appartamenti_tariffe, paolo_tabella_info_1 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_paolo_2">
+              <td onmouseover="javascript:overBgColor('paolo_2');" onmouseout="javascript:outBgColor('paolo_2');">
+                <a href="./contatti{% linkpagine %}"><span id="span_paolo_2" class="font_9">{% trans appartamenti_tariffe, paolo_tabella_info_2 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_paolo_3">
+              <td onmouseover="javascript:overBgColor('paolo_3');" onmouseout="javascript:outBgColor('paolo_3');">
+                <a href="./contatti{% linkpagine %}"><span id="span_paolo_3" class="font_9">{% trans appartamenti_tariffe, paolo_tabella_info_3 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_paolo_4">
+              <td onmouseover="javascript:overBgColor('paolo_4');" onmouseout="javascript:outBgColor('paolo_4');">
+                <a href="./contatti{% linkpagine %}"><span id="span_paolo_4" class="font_9">{% trans appartamenti_tariffe, paolo_tabella_info_4 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_paolo_5">
+              <td onmouseover="javascript:overBgColor('paolo_5');" onmouseout="javascript:outBgColor('paolo_5');">
+                <a href="./contatti{% linkpagine %}"><span id="span_paolo_5" class="font_9">{% trans appartamenti_tariffe, paolo_tabella_info_5 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_paolo_6">
+              <td onmouseover="javascript:overBgColor('paolo_6');" onmouseout="javascript:outBgColor('paolo_6');">
+                <a href="./contatti{% linkpagine %}"><span id="span_paolo_6" class="font_9">{% trans appartamenti_tariffe, paolo_tabella_info_6 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_paolo_7">
+              <td onmouseover="javascript:overBgColor('paolo_7');" onmouseout="javascript:outBgColor('paolo_7');">
+                <a href="./contatti{% linkpagine %}"><span id="span_paolo_7" class="font_9">{% trans appartamenti_tariffe, paolo_tabella_info_7 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_paolo_8">
+              <td onmouseover="javascript:overBgColor('paolo_8');" onmouseout="javascript:outBgColor('paolo_8');">
+                <a href="./contatti{% linkpagine %}"><span id="span_paolo_8" class="font_9">{% trans appartamenti_tariffe, paolo_tabella_info_8 %}</span></a>
+              </td>
+            </tr>
+            <tr>
+              <td class="td_end font_6" id="td_paolo_9" onmouseover="javascript:overBgColorTrEnd('td_paolo_9');" onmouseout="javascript:outBgColorTrEnd('td_paolo_9');"><a class="font_6" href="./contatti{% linkpagine %}">{% trans appartamenti_tariffe, paolo_tabella_info_9 %}</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row-fluid">
+    <div class="span12">
+		<div class="map_canvas" id="0">43.765267; 11.257075; 15</div>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="row-fluid">
+  <div class="span12">
+    <p><span class="font_6">FRANCESCA</span></p>
+    <p><span class="font_7"><b>{% trans appartamenti_tariffe, titolo_francesca %}</b></span></p>
+  </div>
+</div>
+
+<!-- Imposto le Thumbnail -->
+<div class="row-fluid">
+    <div class="span6 thumbnailImg_1_raw">
+      <p><img src="./static/img/appartamenti-tariffe/francesca_old/Francesca_thumb_Grande.jpg" alt="affitto appartamenti Firenze, vacanze italia Firenze"></p>
+    </div>
+    <div class="span6">
+      <div class="row-fluid">
+    {% for obj in francescaObjList %}
+      {% if loop.counter0 < 8  %}
+          <div class="span3">
+            <div class="thumbnail_2_raw" style="background-size: cover; background-image: url('{{ obj.file }}.jpg'); background-repeat:no-repeat; background-position: {{ obj.backgroundShiftX }} {{ obj.backgroundShiftY }}; margin: 4px -2px 4px -2px;">
+              <div class="thumbnail_2_raw background_div" onclick="javascript:showGallery('francesca', {{ loop.counter0 }});">                  
+                <p class="font_6 titolo_2"><span>{{ obj.titoloThumb| translate | capitalize }}</span></p>
+              </div> 
+            </div>
+          </div>
+          {% if loop.counter|module4 %}
+            {% if loop.counter0 < 7 %}
+              </div>
+              <div class="row-fluid">
+            {% endif %}
+          {% endif %}
+        {% endif %}
+    {% endfor %}
+      </div>
+    </div>
+  </div>
+
+<br>
+
+<div class="row-fluid">
+  <div class="span12">
+    {% trans appartamenti_tariffe, descrizione_francesca %}
+  </div>
+</div>
+
+<br>
+
+<div class="row-fluid">
+  <div class="span4">
+    <p><span class="font_9"><b>{% trans appartamenti_tariffe, distanza_titolo %}</b></span></p>
+    <p>
+      <span class="font_9">
+        <ul class="unstyled font_9">
+          {% trans appartamenti_tariffe, distanze %}
+        </ul>
+      </span>
+    </p>
+  </div>
+  <div class="span4">
+    <p><span class="font_9"><b>{% trans appartamenti_tariffe, dotazioni_titolo %}</b></span></p>
+    <p>
+      <span class="font_9">
+        <ul class="unstyled font_9">
+          {% trans appartamenti_tariffe, francesca_dotazioni %}
+        </ul>
+      </span>
+    </p>
+  </div>
+ <div class="span4">
+    <div class="row-fluid">
+      <div class="span12 font_9">
+        <table class="table">
+          <tbody>
+            <tr id="td_francesca_1">
+              <td onmouseover="javascript:overBgColor('francesca_1');" onmouseout="javascript:outBgColor('francesca_1');">
+                <a href="./contatti{% linkpagine %}"><span id="span_francesca_1" class="font_9">{% trans appartamenti_tariffe, francesca_tabella_info_1 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_francesca_2">
+              <td onmouseover="javascript:overBgColor('francesca_2');" onmouseout="javascript:outBgColor('francesca_2');">
+                <a href="./contatti{% linkpagine %}"><span id="span_francesca_2" class="font_9">{% trans appartamenti_tariffe, francesca_tabella_info_2 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_francesca_3">
+              <td onmouseover="javascript:overBgColor('francesca_3');" onmouseout="javascript:outBgColor('francesca_3');">
+                <a href="./contatti{% linkpagine %}"><span id="span_francesca_3" class="font_9">{% trans appartamenti_tariffe, francesca_tabella_info_3 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_francesca_4">
+              <td onmouseover="javascript:overBgColor('francesca_4');" onmouseout="javascript:outBgColor('francesca_4');">
+                <a href="./contatti{% linkpagine %}"><span id="span_francesca_4" class="font_9">{% trans appartamenti_tariffe, francesca_tabella_info_4 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_francesca_5">
+              <td onmouseover="javascript:overBgColor('francesca_5');" onmouseout="javascript:outBgColor('francesca_5');">
+                <a href="./contatti{% linkpagine %}"><span id="span_francesca_5" class="font_9">{% trans appartamenti_tariffe, francesca_tabella_info_5 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_francesca_6">
+              <td onmouseover="javascript:overBgColor('francesca_6');" onmouseout="javascript:outBgColor('francesca_6');">
+                <a href="./contatti{% linkpagine %}"><span id="span_francesca_6" class="font_9">{% trans appartamenti_tariffe, francesca_tabella_info_6 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_francesca_7">
+              <td onmouseover="javascript:overBgColor('francesca_7');" onmouseout="javascript:outBgColor('francesca_7');">
+                <a href="./contatti{% linkpagine %}"><span id="span_francesca_7" class="font_9">{% trans appartamenti_tariffe, francesca_tabella_info_7 %}</span></a>
+              </td>
+            </tr>
+            <tr id="td_francesca_8">
+              <td onmouseover="javascript:overBgColor('francesca_8');" onmouseout="javascript:outBgColor('francesca_8');">
+                <a href="./contatti{% linkpagine %}"><span id="span_francesca_8" class="font_9">{% trans appartamenti_tariffe, francesca_tabella_info_8 %}</span></a>
+              </td>
+            </tr>
+            <tr>
+              <td class="td_end font_6" id="td_francesca_9" onmouseover="javascript:overBgColorTrEnd('td_francesca_9');" onmouseout="javascript:outBgColorTrEnd('td_francesca_9');"><a class="font_6" href="./contatti{% linkpagine %}">{% trans appartamenti_tariffe, francesca_tabella_info_9 %}</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row-fluid">
+    <div class="span12">
+		<div class="map_canvas" id="1">43.765267; 11.257075; 15</div>
+  </div>
+</div>
+
+<br>
+{% endblock content %}
+
+
+{% block scripts %}
+
+<script src="./static/js/holder.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu9gM1uoy8JGwXGjnkSe2Rac1brGKzA6U&v=3.exp&sensor=false"></script>
+{% if DEBUG_ENABLE %}
+	<script src="./static/js/blueimp-gallery.js"></script>
+{% else %}
+	<script src="./static/js/blueimp-gallery.min.js"></script>
+{% endif %}
+
+<script type="text/javascript">
+	var label= ["YourHomeinFlorence, Via De' Bardi 16!","YourHomeinFlorence, Via De' Bardi 16!"]
+	$('.map_canvas').each(function (index, Element) {
+	    var coords = $(Element).text().split(";");
+	    if (coords.length != 3) {
+	        $(this).display = "none";
+	        return;
+	    }
+	    var latlng = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
+	    var myOptions = {
+	        zoom: parseFloat(coords[2]),
+	        center: latlng,
+	        mapTypeId: google.maps.MapTypeId.ROADMAP,
+	        disableDefaultUI: false,
+	        mapTypeControl: true,
+	        zoomControl: true,
+	        zoomControlOptions: {
+	            style: google.maps.ZoomControlStyle.SMALL
+	        }
+	    };
+	    var map = new google.maps.Map(Element, myOptions);
+
+	    var marker = new google.maps.Marker({
+	        position: latlng,
+	        map: map,
+	        title: label[index]
+	    });
+	});	
+	
+	function initPage(){
+	}
+
+	function showGallery(nome, indice){
+	  var links = document.getElementById(nome+'_links').getElementsByTagName('a');
+	  options = {
+			  fullScreen: false,
+			  stretchImages: false,
+			  index: links[indice],
+	  };
+	
+	  if (blueimp.Gallery(links, options)) {
+          return false;
+      }
+	};
+	
+	function overBgColor(nome){
+		changeBgColor(document.getElementById("td_"+nome), 'rgba(77, 91, 105, 1)');
+    changeFontColor(document.getElementById("span_"+nome), 'rgb(12, 60, 96)');
+	};
+	
+	function outBgColor(nome){
+		changeBgColor(document.getElementById("td_"+nome), 'rgba(197, 204, 212, 0.439216)');
+    changeFontColor(document.getElementById("span_"+nome), 'rgb(47, 39, 39)');    
+	};
+
+	function overBgColorTrEnd(nome){
+		var element = document.getElementById(nome);
+		changeBgColor(element, 'white');
+    changeFontColor(element, 'rgb(12, 60, 96)');
+		element.firstChild.style.color = 'rgb(12, 60, 96)';
+	};
+	
+	function outBgColorTrEnd(nome){
+		var element = document.getElementById(nome);
+		changeBgColor(element, 'rgb(67, 75, 84)');
+    changeFontColor(element, 'rgb(197, 204, 212)');
+		element.firstChild.style.color = 'rgb(197, 204, 212)';
+	};
+
+	function changeBgColor(element, bgColor){
+		element.style.background = bgColor;
+	};
+
+  function changeFontColor(element, fontColor){
+    element.style.color = fontColor;
+  };
+
+  function apri(nome){
+    window.open(nome,"_self");
+  };
+
+</script>
+
+{% endblock scripts %}
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <title>Vincenza&Francesco </title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="utf-8" />
+	    <meta content="text/html; charset=UTF-8" http-equiv=Content-Type />
+		<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Language" content="en-gb" />
+		<meta http-equiv="content-language" content="en-us" />
+		<meta name="description" content="Vincenza e Francesco Wedding, 11 Maggio 2014" />
+		
+		<link href="./static/favicon.png" rel="icon" type="image/png" />
+		
+		<link href="./static/css/bootstrap-glyphicons.css" rel='stylesheet' type='text/css' />
+	    <link href='./static/css/font-jura.css' rel='stylesheet' type='text/css'>
+		<link href="./static/css/font-shelley.css" rel="stylesheet" type="text/css" />
+		{% if DEBUG_ENABLE %}
+		    <link href="./static/css/bootstrap.css" rel='stylesheet' type='text/css'>
+		    <link href="./static/css/bootstrap-responsive.css" rel='stylesheet' type='text/css'>
+		{% else %}
+		    <link href="./static/css/bootstrap.min.css" rel='stylesheet' type='text/css'>
+		    <link href="./static/css/bootstrap-responsive.min.css" rel='stylesheet' type='text/css'>
+		{% endif %}
+	    <link href='./static/css/wedding.css' rel='stylesheet' type='text/css'>
+		<!--[if lt IE 7]><link rel="stylesheet" href="./static/css/bootstrap-ie6.css"><![endif]-->
+		{% block styles %}
+		{% endblock styles %}
+
+	</head>
+
+	<body style="background-image:url(./static/img/background.png); background-repeat: no-repeat; background-position: center;background-attachment:fixed;">
+
+		{% block beforeContainer %}
+		{% endblock beforeContainer %}
+
+	    <div class="container">
+			{% block container %}
+			{% endblock container %}
+		</div>
+	
+		{% block afterContainer %}
+		{% endblock afterContainer %}	
+
+		{% if DEBUG_ENABLE %}
+		    <script src="./static/js/jquery-1.9.1.js"></script>
+		    <script src="./static/js/bootstrap.js"></script>
+		{% else %}
+			<script src="./static/js/jquery-1.9.1.min.js"></script>
+			<script src="./static/js/bootstrap.min.js"></script>
+		{% endif %}
+		<!-- Optionally enable responsive features in IE8 -->
+    	<script src="./static/js/respond.min.js"></script>
+    	
+	    <script type="text/javascript">
+	      $(function () {
+	        
+	        initPage();
+	      });
+
+
+		{% block scripts %}
+		{% endblock scripts %}
+	    </script>
+
+	</body>
+</html>

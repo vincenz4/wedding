@@ -1,0 +1,6 @@
+@font-face {
+   font-family: 'shelley';
+   font-style: normal;
+   font-weight: 400;
+   src: local('ShelleyAllegroScript'), url('../fonts/ShelleyAllegroScript.ttf') format('truetype');
+}

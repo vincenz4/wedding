@@ -1,0 +1,52 @@
+{% extends "./sitebase.html" %}
+
+{% block content %}
+  
+  <div class="row">
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+		<div class="map_canvas" id="1">38.746066; 16.187815; 15</div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+{% block addonscripts %}
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu9gM1uoy8JGwXGjnkSe2Rac1brGKzA6U&v=3.exp&sensor=false"></script>
+{% endblock addonscripts %}
+
+{% block scripts %}
+
+
+	var label= ["Ristorante Mocambo, Via Nazionale SS 18 - Loc. Bevivino - 89812 Pizzo Calabro (VV)!","Ristorante Mocambo, Via Nazionale SS 18 - Loc. Bevivino - 89812 Pizzo Calabro (VV)!"]
+	$('.map_canvas').each(function (index, Element) {
+	    var coords = $(Element).text().split(";");
+	    if (coords.length != 3) {
+	        $(this).display = "none";
+	        return;
+	    }
+	    var latlng = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
+	    var myOptions = {
+	        zoom: parseFloat(coords[2]),
+	        center: latlng,
+	        mapTypeId: google.maps.MapTypeId.ROADMAP,
+	        disableDefaultUI: false,
+	        mapTypeControl: true,
+	        zoomControl: true,
+	        zoomControlOptions: {
+	            style: google.maps.ZoomControlStyle.SMALL
+	        }
+	    };
+	    var map = new google.maps.Map(Element, myOptions);
+
+	    var marker = new google.maps.Marker({
+	        position: latlng,
+	        map: map,
+	        title: label[index]
+	    });
+	});	
+
+	function initPage(){
+		return;
+	}
+
+{% endblock scripts %}

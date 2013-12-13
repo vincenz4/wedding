@@ -1,11 +1,11 @@
 <?php
         require './h2o.php';
         require './session.php';
-        $h2o = new h2o('templates/home.html');
+        $h2o = new h2o('templates/posta.html');
         echo $h2o->render(array('DEBUG_ENABLE'=>False,
         	'charset' => 'UTF-8',
-        	'pagina' => 'home',
-        	'vincenzaObjList' => array( 
+        	'pagina' => 'posta',
+        	'bacheca-received' => array( 
 				array(  
 					'file' =>  './static/img/vincenza/test',
 					'backgroundShiftX' =>  '-38px',

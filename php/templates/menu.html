@@ -1,12 +1,12 @@
 <!--Body content-->
-<div class="centra_nav-bar">
-  <ul class="nav nav-pills font_7">
+<!--div class="centra_nav-bar"-->
+<div class="col-sm-12 col-md-12 col-lg-12">	
+  <ul class="nav nav-pills nav-justified font_7">
     <li></li>
-    <li class="active"><a href="#">Un po' di noi</a></li>
-    <li><a href="./info.php">Organizziamoci</a></li>
-    <li><a href="./gallery.php">Istantanee</a></li>
-    <li><a href="./lista-nozze.php">Lista Nozze</a></li>
-    <li><a href="./posta.php">Angolo della posta</a></li>
+    <li {% if pagina == 'home' %}class="active"><a href="#">{% else %}><a href="./home.php">{% endif %}Un po' di noi</a></li>
+    <li {% if pagina == 'organizziamoci' %}class="active"><a href="#">{% else %}><a href="./organizziamoci.php">{% endif %}Organizziamoci</a></li>
+    <li {% if pagina == 'istantanee' %}class="active"><a href="#">{% else %}><a href="./istantanee.php">{% endif %}Istantanee</a></li>
+    <li {% if pagina == 'lista-nozze' %}class="active"><a href="#">{% else %}><a href="./lista-nozze.php">{% endif %}Lista Nozze</a></li>
+    <li {% if pagina == 'posta' %}class="active"><a href="#">{% else %}><a href="./posta.php">{% endif %}Angolo della posta</a></li>
   </ul>
 </div>
-

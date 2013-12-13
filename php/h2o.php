@@ -11,7 +11,9 @@ require H2O_ROOT.'h2o/errors.php';
 require H2O_ROOT.'h2o/filters.php';
 require H2O_ROOT.'h2o/context.php';
 
-require H2O_ROOT.'h2o-personal-extension/traduzione.php';
+/**
+*require H2O_ROOT.'h2o-personal-extension/traduzione.php';
+*/
 require H2O_ROOT.'h2o-personal-extension/generici.php';
 
 /**

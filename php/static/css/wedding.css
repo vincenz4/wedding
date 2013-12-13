@@ -14,21 +14,20 @@ body {
 
 .centra{
   margin-top: auto;
-    text-align: center;
+  text-align: center;
 }
 .centra_img{
   width: 300px;
-    height: 300px; 
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    margin-top: -150px;
-    margin-left: -150px;
+  height: 300px; 
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
 }
 .centra_nav-bar{
   width: auto;
   margin-left: 11%;
-  
 }
 .centra_thumb_l{
   margin-left: -4.5%;
@@ -119,7 +118,7 @@ a.link:hover{
 .footer {
     font-size:12px;
     width:100%;
-    height:16px;    
+    height:32px;    
     position:fixed;
     margin:auto;
     bottom:20px;
@@ -224,7 +223,7 @@ a.link:hover{
     box-shadow: none;
   }
 
-  .bs-example:after {
+.bs-example:after {
 content: "Example";
 position: absolute;
 top: 15px;
@@ -270,3 +269,23 @@ letter-spacing: 1px;
   position: absolute;
 }
 
+.featurette-divider {
+  margin: 10px 0px; /* Space out the Bootstrap <hr> more */
+}
+
+/* START > GMAPS*/
+.map_canvas{
+  width: auto;
+  height: 300px;
+}
+
+.map_canvas label { 
+  width: auto; 
+  display:inline; 
+} 
+
+.map_canvas img { 
+  max-width:none; 
+  
+}
+/* END > GMAPS*/

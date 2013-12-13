@@ -1,10 +1,10 @@
 <?php
         require './h2o.php';
         require './session.php';
-        $h2o = new h2o('templates/home.html');
+        $h2o = new h2o('templates/lista-nozze.html');
         echo $h2o->render(array('DEBUG_ENABLE'=>False,
         	'charset' => 'UTF-8',
-        	'pagina' => 'home',
+        	'pagina' => 'lista-nozze',
         	'vincenzaObjList' => array( 
 				array(  
 					'file' =>  './static/img/vincenza/test',

@@ -50,8 +50,13 @@
 			<script src="./static/js/jquery-1.9.1.min.js"></script>
 			<script src="./static/js/bootstrap.min.js"></script>
 		{% endif %}
+		
+		{% block addonscripts %}
+		{% endblock addonscripts %}
+
 		<!-- Optionally enable responsive features in IE8 -->
     	<script src="./static/js/respond.min.js"></script>
+    	<script src="./static/js/holder.js"></script>
     	
 	    <script type="text/javascript">
 	      $(function () {

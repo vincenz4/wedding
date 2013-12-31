@@ -1,0 +1,130 @@
+{% extends "./sitebase.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">   
+		<p class="font_4 centra">Il primo passo, raggiungere Briatico</p>
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title font_4">In Aereo</h3>
+		  </div>
+		  <div class="panel-body">
+		    <p style="font-size:14px;">L'aereo rappresenta il mezzo di trasporto più veloce per raggiungere la Calabria e anche il più economico. Per raggiungere briatico l'aereoporto più vicino è quello di <a href="http://www.sacal.it" target="_blank">Lamezia Terme</a>, distante circa 40 minuti di macchina da Biriatico. L'altro aereporto, a circa 100 km di distanza da Briaticom è quello di Reggio Calabria.</p>
+		    <br>		    
+		    <p style="font-size:14px;"><a href="http://www.ryanair.com" target="_blank">Ryanair</a> rappresenta la scelta ottimale per raggiungere Lamezia Terme con partenza dall'aereoporto di Pisa, Bologna e Roma Fiumicino.</p>
+		    <p style="font-size:14px;">Una volta raggiunto l'aereoporto di Lamezia terme le possibilità di raggiungere Briatico sono rappresentate da:
+		    	<ul>
+		    		<li><p style="font-size:14px;"><strong>Treno</strong>. Prendere la <a href="http://www.lameziamultiservizi.it/index.php?area=TRASPORTI&id=21&linea=4&MyFermata=0" target="_blank">navetta</a> che collega l'aereoporto di Lamezia terme con la stazione dei treni; questa ha il seguente <a href="http://wordpress.lameziamultiservizi.it/wordpress/wp-content/uploads/2013/06/Shuttle1.pdf" target="_blank"> orario</a>. Una volta arrivati alla stazione centrale di Lamezia Terme prendere il treno per briatico.</p>
+		    		</li>
+		    		<li><p style="font-size:14px;"><strong>Auto</strong>. Noleggiare un'auto presso gli autonoleggi presenti all'aereporto. Il noleggio costa sui 30/35 euro al giorno. Con l'auto seguire le indicazioni per Pizzo e quindi proseguire per Tropea.</p>
+		    		</li>
+		    	</ul>
+		    </p>
+			<div class="map_canvas" id="0">38.839173; 16.261826; 10; Lamezia Terme; Briatico</div>
+		  </div>
+		</div>
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title font_4">In treno</h3>
+		  </div>
+		  <div class="panel-body">
+		    <p style="font-size:14px;">Il treno rappresenta una valida alternativa per raggiungere Briatico. Rispetto all'aereo il teno rappresenta una solzione più dispendiosa sia per il tempo necessario a raggiungere Briatico, circa 8 ore, sia da un punto di vista economico. Il viaggio in treno vede l'utilizzo dell'alta velocità fino a Napoli, con Trenitali o Italo, e quindi proseguire con la Freccia Argenta o Intercity per Lamezia terme/ Vibo Pizzo e da qui per Briatico con un locale, I biglietti si possono acqustare direttamente sul sito di <a href="http://www.trenitalia.com" target="_blank">Trenitalia</a> o <a href="http://www.italotreno.it" target="_blank">Italo</a>.</p>
+		  </div>
+		</div>
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title font_4">In Auto</h3>
+		  </div>
+		  <div class="panel-body">
+		    <p style="font-size:14px;">Il viaggio in auto rapresenta invece la scelta per i più temerari e intrepidi. Il traggitto prevede la percorrenza della A! fino a Salerno e da qui la <string>mitica</strong> Salerno Reggio Calabria. Per info e costi <a href="http://www.viamichelin.it/web/Itinerari" target="_blank">clicca qui</a></p>
+		    <div class="map_canvas" id="1">41.681118; 13.200073; 5; Firenze; Briatico</div>
+		  </div>
+		</div>
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title font_4">In Autobus</h3>
+		  </div>
+		  <div class="panel-body">
+		    <p style="font-size:14px;">Ed infine, per chi veramente non teme nienete nella vita, l'autobus. Le compagnie che operano il servizio da Firenze per Vibo Valentia o Lamezia Terme sono:</p>
+		  </div>
+		</div>
+    </div>
+
+  </div>
+
+<!--
+  <div class="row">
+    <div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+		<div class="map_canvas" id="1"></div>
+    </div>
+  </div>
+-->
+{% endblock content %}
+
+{% block addonscripts %}
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu9gM1uoy8JGwXGjnkSe2Rac1brGKzA6U&v=3.exp&sensor=false"></script>
+{% endblock addonscripts %}
+
+{% block scripts %}
+
+	var directionsService = new google.maps.DirectionsService();
+
+	$('.map_canvas').each(function (index, Element) {	
+	    var coords = $(Element).text().split(";");
+	    if (coords.length < 3) {
+	        $(this).display = "none";
+	        return;
+	    }
+	    var latlng = new google.maps.LatLng(parseFloat(coords[0]), parseFloat(coords[1]));
+	    var myOptions = {
+	        zoom: parseFloat(coords[2]),
+	        center: latlng,
+	        mapTypeId: google.maps.MapTypeId.ROADMAP,
+	        disableDefaultUI: false,
+	        mapTypeControl: true,
+	        zoomControl: true,
+	        zoomControlOptions: {
+	            style: google.maps.ZoomControlStyle.SMALL
+	        }
+	    };
+	    var map = new google.maps.Map(Element, myOptions);
+	    
+		var directionsDisplay = new google.maps.DirectionsRenderer({
+	        'map': map,
+	        'preserveViewport': true,
+	        'draggable': true
+	    });
+	    
+	    //directionsDisplay.setPanel(Element);
+		
+		if (coords.length == 5) {
+	    	calcRoute(directionsDisplay, coords[3], coords[4]);
+	    }
+	});
+
+	function calcRoute(directionsDisplay, start, end) {
+	    var request = {
+	        origin:start,
+	        destination:end,
+	        travelMode: google.maps.DirectionsTravelMode.DRIVING
+	    };
+	    directionsService.route(request, function(response, status) {
+	      if (status == google.maps.DirectionsStatus.OK) {
+	        directionsDisplay.setDirections(response);
+	      }
+		});
+	}
+
+	function initPage(){
+		return;
+	}
+
+{% endblock scripts %}

@@ -3,10 +3,22 @@
 <div class="col-sm-12 col-md-12 col-lg-12">	
   <ul class="nav nav-pills nav-justified font_7">
     <li></li>
-    <li {% if pagina == 'home' %}class="active"><a href="#">{% else %}><a href="./home.php">{% endif %}Un po' di noi</a></li>
-    <li {% if pagina == 'organizziamoci' %}class="active"><a href="#">{% else %}><a href="./organizziamoci.php">{% endif %}Organizziamoci</a></li>
-    <li {% if pagina == 'istantanee' %}class="active"><a href="#">{% else %}><a href="./istantanee.php">{% endif %}Istantanee</a></li>
-    <li {% if pagina == 'lista-nozze' %}class="active"><a href="#">{% else %}><a href="./lista-nozze.php">{% endif %}Lista Nozze</a></li>
-    <li {% if pagina == 'posta' %}class="active"><a href="#">{% else %}><a href="./posta.php">{% endif %}Angolo della posta</a></li>
+    <li class="{% cssactuallink home %}"><a href="{% hreflink home, home.php %}">Un po' di noi</a></li>
+    <li class="dropdown {% cssactuallink organizziamoci %}">
+    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Organizziamoci <span class="caret"></span></a>
+    	<ul class="dropdown-menu" role="menu">
+			<li class="{% cssactuallink organizziamoci_arrivare_briatico %}"><a href="{% hreflink organizziamoci_arrivare_briatico, organizziamoci_arrivare_briatico.php%}">Arrivare a Briatico ... </a></li>
+			<li><a href="#">... alla chiesa</a></li>
+			<li><a href="#">... al ristorante</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Dormire</a></li>
+			<li><a href="#">Mangiare</a></li>
+			<li class="divider"></li>
+			<li><a href="#">La calabria da scoprire</a></li>
+		</ul>    	
+  	</li>
+    <li class="{% cssactuallink istantanee %}"><a href="{% hreflink istantanee, istantanee.php %}">Istantanee</a></li>
+    <li class="{% cssactuallink lista-nozze %}"><a href="{% hreflink lista-nozze, lista-nozze.php %}">Lista Nozze</a></li>
+    <li class="{% cssactuallink posta %}"><a href="{% hreflink posta, posta.php %}">Angolo della posta</a></li>
   </ul>
 </div>

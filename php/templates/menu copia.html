@@ -1,0 +1,25 @@
+<!--Body content-->
+<!--div class="centra_nav-bar"-->
+<div class="col-sm-12 col-md-12 col-lg-12">	
+  <ul class="nav nav-pills nav-justified font_7">
+    <li></li>
+    <li {% if pagina == 'home' %}class="active"><a href="#">{% else %}><a href="./home.php">{% endif %}Un po' di noi</a></li>
+    <li class="dropdown {% if preg_match('#^organizziamoci_#i', pagina) == 1 %}active{% endif %}">
+    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Organizziamoci <span class="caret"></span></a>
+    	<ul class="dropdown-menu" role="menu">
+			<li><a {% if pagina == 'organizziamoci_arrivare_briatico' %}class="active"{% endif %} href="./organizziamoci_arrivare_briatico.php">Arrivare a Briatico ... </a></li>
+			<li><a href="#">... alla chiesa</a></li>
+			<li><a href="#">... al ristorante</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Dormire</a></li>
+			<li><a href="#">Mangiare</a></li>
+			<li class="divider"></li>
+			<li><a href="#">La calabria da scoprire</a></li>
+		</ul>    	
+  	</li>
+    <li {% if pagina == 'istantanee' %}class="active"><a href="#">{% else %}><a href="./istantanee.php">{% endif %}Istantanee</a></li>
+    <li {% if pagina == 'lista-nozze' %}class="active"><a href="#">{% else %}><a href="./lista-nozze.php">{% endif %}Lista Nozze</a></li>
+    <li {% if pagina == 'posta' %}class="active"><a href="#">{% else %}><a href="./posta.php">{% endif %}Angolo della posta</a></li>
+    
+  </ul>
+</div>

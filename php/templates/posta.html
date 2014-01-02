@@ -9,7 +9,7 @@
 			<div class="font_7">
 				<p class="font_2 centra">Contattaci</p>	
 				<p class="font_4">Per info, dubbi e/o curiosità</p>				
-				<form id="contact-form" role="form" method="POST">
+				<form action="" id="contact-form" method="POST">
 					<div class="form-group">
 						<label class="control-label" for="iNome">Nome e Cognome *</label>					 
 						<input id="iNome" type="text" class="form-control" name="nome" required="required" placeholder="Nome ..."><span class="hide help-inline">Obbligatorio</span>
@@ -45,7 +45,7 @@
 		$('#contact-form').validate({
 			rules: {
 				nome: {
-				  minlength: 3,
+				  minlength: 5,
 				  required: true
 				},
 				email: {
@@ -67,9 +67,27 @@
 			unhighlight: function(label) {
 				$(label).closest('.form-group').removeClass('has-error');
 			},
-			success: function(element) {
+			success: function(label) {
                 $(label).closest('.form-group').removeClass('has-error').addClass('has-success');
-            },			
+            },	
+			messages:{
+				nome: {
+					required: "Devi inserire il nome e il cognome",
+					minlength: "Il nome deve essere minimo 5 caratteri"
+				},
+				email: {
+					required: "Devi inserire l'email",
+					email: "Inserisci una email valida"
+				},
+				oggetto: {
+					required: "Devi inserire l'oggetto del messaggio",
+					minlength: "L'oggetto deve essere di almeno 3 caratteri",
+				},
+				corpo: {
+					required: "Devi inserire il corpo del messaggio",
+					minlength: "Il corpo del messaggio deve essere di almeno 20 caratteri",
+				},
+			},
 			errorElement: 'span',
 			errorClass: 'help-block',
 			errorPlacement: function(error, element) {
@@ -81,36 +99,23 @@
 			},
 			submitHandler: function (form) {
 	            // form validates so do the ajax
-	            $.ajax({
-	                type: $(form).attr('method'),
-	                url: "../php/client/json.php",
-	                data: $(form).serialize(),
-	                success: function (data, status) {
-	                    // ajax done
-	                    // do whatever & close the modal
-	                    $(this).modal('hide');
-	                }
-	            });
-            return false; // ajax used, block the normal submit
+	            
+			    $.getJSON('mail.php?contactFormSubmitted=yes&'+$('#contact-form').serialize(), function(data){
+		        	var testo;
+		        	console.log("Stato del messaggio: " + data.status);
+		        	if(data.status == '0'){
+		          		testo = "<div id=\"idAlert\" class=\"alert alert-success\">";
+		          		$('#btnInvio').prop('disabled', true);
+		        	} else {
+		          		testo = "<div id=\"idAlert\" class=\"alert alert-error\">";
+		        	}
+		        	testo += data.messaggio+"<\div>";
+		        	$('#formResponse').append(testo);
+			    });
+
+            	return false; // ajax used, block the normal submit
 	        },	
 		});
 	}
-
-
-	// contact form submission, clear fields, return message
-	$("#btnInvio").on('click', function(e){
-
-    	$('#idAlert').remove();
-	    $.getJSON('mail.php?contactFormSubmitted=yes&'+$('#contact-form').serialize(), function(data){
-        	var testo;
-        	if(data.status == '0'){
-          		testo = "<div id=\"idAlert\" class=\"alert alert-success\">";
-        	} else {
-          		testo = "<div id=\"idAlert\" class=\"alert alert-error\">";
-        	}
-        	testo += data.messaggio+"<\div>";
-        	$('#formResponse').append(testo);
-	    });
-	});
 
 {% endblock scripts %}

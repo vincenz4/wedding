@@ -1,5 +1,5 @@
 <?php
-
+	date_default_timezone_set('Europe/Rome');
 	header("Content-Type: text/javascript; charset=utf-8");
 
 	$recipient = "castellani.f@gmail.com";
@@ -43,7 +43,8 @@
 	);
 
 	//$provenienza = array ('yourhomesinflorence.it','www.yourhomesinflorence.it');
-    
+    $provenienza = array ();
+
 	$json_response = "";
 	$status = true;
 

@@ -1,3 +1,7 @@
+body, html {
+  height: 100%;
+}
+
 body {
   padding-top: 20px;
   /*padding-bottom: 60px;*/
@@ -5,6 +9,7 @@ body {
   text-align:left; 
   font-size:12px;
 }
+
 .background{
   background-color: white;
   background-image: background.jpg;
@@ -12,16 +17,28 @@ body {
   background-position: center center;
 }
 
+.container {
+  margin: 0 auto;
+  width: auto;
+  text-align: justify;
+  height: 100%;
+}
+
+.container_box {
+  background-color: rgb(83, 151, 59);
+}
+
 /*.content{
   margin-bottom: 40px;
 }
+
 
 .footer {
     font-size:12px;
     width:auto;
     height:32px; 
     position:fixed;
-    margin:auto;
+    margin:0 auto;
     bottom:20px;
     z-index:19;
     padding-top:4px;
@@ -31,10 +48,32 @@ body {
 }
 */
 
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -45px;
+  /* Pad bottom by footer height */
+  padding: 0 0 57px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 57px;
+}
+
 .centra{
   margin-top: auto;
   text-align: center;
 }
+
+.marginTop20{
+  margin-top: 20px;
+}
+/*
+
 .centra_img{
   width: 300px;
   height: 300px; 
@@ -44,10 +83,13 @@ body {
   margin-top: -150px;
   margin-left: -150px;
 }
+*/
+
 .centra_nav-bar{
   width: auto;
   margin-left: 11%;
 }
+
 .centra_thumb_l{
   margin-left: -4.5%;
 }
@@ -114,15 +156,7 @@ body {
 .border_img{
   border: 1px solid rgb(49, 74, 18);
 }
-.container {
-  margin: 0 auto;
-  width: auto;
-  text-align: justify;
-}
 
-.container_box {
-    background-color: rgb(83, 151, 59);
-}
 .bacheca{
   width: 300px;
   text-align: justify;

@@ -21,65 +21,63 @@
 {% endblock styles %}
 
 {% block content %}
-<div class="row-fluid">
-  <div class="span6">
-	<p class="richTextContainer"><span class="font_6"><span class="color_2"><span class="bold">{% trans contatti, titolo_1 %}</span></span></span></p>  
-	{% trans contatti, chi_siamo_body %}
-	<br>
-  </div>  
-  <div class="span6">
-	<div>
-		<p class="richTextContainer">
-			<span class="font_6"><span class="color_2"><span class="bold">{% trans contatti, titolo_2 %}</span></span></span><br>
-			<span class="font_8"><span class="bold">{% trans contatti, form_body %}</span></span>
-		</p>  
+	<div class="row">
+	  <div class="span6">
+		<p class="richTextContainer"><span class="font_6"><span class="color_2"><span class="bold">{% trans contatti, titolo_1 %}</span></span></span></p>  
+		{% trans contatti, chi_siamo_body %}
+		<br>
+	  </div>  
+	  <div class="span6">
+		<div>
+			<p class="richTextContainer">
+				<span class="font_6"><span class="color_2"><span class="bold">{% trans contatti, titolo_2 %}</span></span></span><br>
+				<span class="font_8"><span class="bold">{% trans contatti, form_body %}</span></span>
+			</p>  
+		</div>
+		<br>
+		<div class="font_9">
+			<form id="contact-form" class="font_9" method="POST">
+				<input type="hidden" name="lang" value="{{ locale }}"/>
+				<fieldset> 
+					<div class="control-group">  
+						<label class="font_9 control-label" for="iNome">{% trans contatti, label_nome %}</label>
+						<div class="controls">  
+							<input id="iNome" class="input font_9" type="text" placeholder="{% trans contatti, label_nome %} ...." name="nome" required="required"/><span class="hide help-inline">Obbligatorio</span>
+						</div>
+					</div>	
+					<div class="control-group">  
+						<label class="font_9 control-label" for="iEmail">Email</label>
+						<div class="controls">  
+							<input id="iEmail" class="input font_8" type="email" placeholder="email@email.com" name="email" required="required"/><span class="hide help-inline">Obbligatorio</span>
+						</div>
+					</div>	
+					<div class="control-group">  
+						<label class="font_9 control-label" for="iOggetto">{% trans contatti, label_oggetto %}</label>
+						<div class="controls">  
+							<input id="iOggetto" class="input font_9" type="text" placeholder="{% trans contatti, label_oggetto %} ..." name="oggetto" required="required"/><span class="hide help-inline">Obbligatorio</span>
+						</div>
+					</div>	
+					<div class="control-group">  
+						<label class="font_9 control-label" for="iMessaggio">{% trans contatti, label_messaggio %}</label>
+						<div class="controls">  
+							<textarea id="iMessaggio" class="textarea font_9" placeholder="{% trans contatti, label_messaggio %} ..." name="corpo" required="required"></textarea>
+						</div>
+					</div>	
+					<div class="control-group">
+						<button id="btnInvio" class="btn btn-link btn-small pull-right" type="button" style="background-color: rgb(116, 137, 158);color: rgb(12, 60, 96);">{% trans contatti, label_btn_invio %}</button>
+					</div>
+					<div id="formResponse"></div>
+				<fieldset> 
+			</form>
+		</div>
+	  </div>
 	</div>
-	<br>
-	<div class="font_9">
-		<form id="contact-form" class="font_9" method="POST">
-			<input type="hidden" name="lang" value="{{ locale }}"/>
-			<fieldset> 
-				<div class="control-group">  
-					<label class="font_9 control-label" for="iNome">{% trans contatti, label_nome %}</label>
-					<div class="controls">  
-						<input id="iNome" class="input font_9" type="text" placeholder="{% trans contatti, label_nome %} ...." name="nome" required="required"/><span class="hide help-inline">Obbligatorio</span>
-					</div>
-				</div>	
-				<div class="control-group">  
-					<label class="font_9 control-label" for="iEmail">Email</label>
-					<div class="controls">  
-						<input id="iEmail" class="input font_8" type="email" placeholder="email@email.com" name="email" required="required"/><span class="hide help-inline">Obbligatorio</span>
-					</div>
-				</div>	
-				<div class="control-group">  
-					<label class="font_9 control-label" for="iOggetto">{% trans contatti, label_oggetto %}</label>
-					<div class="controls">  
-						<input id="iOggetto" class="input font_9" type="text" placeholder="{% trans contatti, label_oggetto %} ..." name="oggetto" required="required"/><span class="hide help-inline">Obbligatorio</span>
-					</div>
-				</div>	
-				<div class="control-group">  
-					<label class="font_9 control-label" for="iMessaggio">{% trans contatti, label_messaggio %}</label>
-					<div class="controls">  
-						<textarea id="iMessaggio" class="textarea font_9" placeholder="{% trans contatti, label_messaggio %} ..." name="corpo" required="required"></textarea>
-					</div>
-				</div>	
-				<div class="control-group">
-					<button id="btnInvio" class="btn btn-link btn-small pull-right" type="button" style="background-color: rgb(116, 137, 158);color: rgb(12, 60, 96);">{% trans contatti, label_btn_invio %}</button>
-				</div>
-				<div id="formResponse"></div>
-			<fieldset> 
-		</form>
-	</div>
-  </div>
-</div>
 
-<div class="row-fluid">
-	<div class="spa6 font_7" style="display: inline;">
-		<a href="http://www.timeanddate.com/worldclock/city.html?n=341" target="_blank">​​{% trans contatti, tempo %} &nbsp; &nbsp;<img src="./static/img/sole.jpg"/></a>
+	<div class="row">
+		<div class="spa6 font_7" style="display: inline;">
+			<a href="http://www.timeanddate.com/worldclock/city.html?n=341" target="_blank">​​{% trans contatti, tempo %} &nbsp; &nbsp;<img src="./static/img/sole.jpg"/></a>
+		</div>
 	</div>
-</div>
-<br>
-<br>
 {% endblock content %}
 
 

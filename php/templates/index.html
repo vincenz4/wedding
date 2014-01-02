@@ -1,22 +1,36 @@
 {% extends "./base.html" %}
 
+{% block styles %}
+	<style type="text/css">
+		#wrap{
+    		display: table;
+    		vertical-align: middle;
+    		horizontal-align: center;
+		}
+		.vertical-center-row{
+    		display: table-cell;
+    		vertical-align: middle;
+    		text-align:center;
+		}
+	</style>
+{% endblock styles %}
+
 {% block container %}
-<div class="container">
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<!--Body content-->
-			<div class="centra_img">
-				<img src ="./static/img/es.png" alt="" ></img>
-				<div class="centra">
-					<a href="./home.php"><img class="font_9" src="./static/img/logo-tr.png" alt="Entra"></img></a>
-				</div>
-			</div> 
-		</div>
+	<div id="wrap">
+	    <div class="row vertical-center-row">
+    	    <div class="col-sm-12 col-md-12 col-lg-12">
+    	    	<img src ="./static/img/es.png" alt=""></img>
+    	    	<div class="col-sm-12 col-md-12 col-lg-12">
+	    			<a href="./home.php">
+	    			<img class="font_9" src="./static/img/logo-tr.png" alt="Entra"></img>
+	    			</a>
+        		</div>
+        	</div>
+    	</div>	    
 	</div>
-		
+
 	{% include "./footer.html" %}
 
-</div>
 {% endblock container %}
 
 {% block scripts %}

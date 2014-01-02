@@ -8,11 +8,20 @@
 
 {% block container %}
 
-		{% include "./header.html" %}
-	     
-		{% block content %}
-		{% endblock content %}
 		
+		{% block beforeContent %}
+		{% endblock beforeContent %}
+
+		<div id="wrap">
+			{% include "./header.html" %}
+
+			{% block content %}
+			{% endblock content %}
+		</div>
+		
+		{% block afterContent %}
+		{% endblock afterContent %}
+
 		{% include "./footer.html" %}
 
 {% endblock container %}

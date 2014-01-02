@@ -2,7 +2,7 @@
 
 	header("Content-Type: text/javascript; charset=utf-8");
 
-	$recipient = "yourhomeinflorence@gmail.com";
+	$recipient = "castellani.f@gmail.com";
 
 	$messages = array (
 		"errore_sicurezza" => array(

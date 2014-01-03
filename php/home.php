@@ -44,7 +44,7 @@
 					'titoloSlide' => 'giorno',
 				),
 				array(  
-					'file' =>  './static/img/francesco/97.jpg',
+					'file' =>  './static/img/francesco/14.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'giorno',
@@ -53,14 +53,14 @@
 			),
  			'viFraObjList' => array( 
 				array(  
-					'file' =>  './static/img/vi_fra/13.jpg',
+					'file' =>  './static/img/vi_fra/39.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'giorno',
 					'titoloSlide' => 'giorno',
 				),
 				array(  
-					'file' =>  './static/img/vi_fra/010.jpg',
+					'file' =>  './static/img/vi_fra/65.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'giorno',

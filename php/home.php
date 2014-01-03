@@ -10,22 +10,22 @@
 					'file' =>  './static/img/vincenza/54.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
-					'titoloThumb' => 'salotto',
-					'titoloSlide' => 'salotto',
+					'titoloThumb' => 'in bicicletta',
+					'titoloSlide' => 'in bicicletta',
 				),
 				array(  
 					'file' =>  './static/img/vincenza/46.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
-					'titoloThumb' => 'salotto',
-					'titoloSlide' => 'salotto',
+					'titoloThumb' => 'Un pò di vanità',
+					'titoloSlide' => 'Un pò di vanità',
 				),
 				array(  
 					'file' =>  './static/img/vincenza/49.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
-					'titoloThumb' => 'salotto',
-					'titoloSlide' => 'salotto',
+					'titoloThumb' => 'La meditazione',
+					'titoloSlide' => 'La meditazione',
 				)
 			),
  			'francescoObjList' => array( 
@@ -33,22 +33,22 @@
 					'file' =>  './static/img/francesco/22.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
-					'titoloThumb' => 'giorno',
-					'titoloSlide' => 'giorno',
+					'titoloThumb' => 'La prima mi era andata bene ... la seconda no',
+					'titoloSlide' => 'La prima mi era andata bene ... la seconda no',
 				),
 				array(  
 					'file' =>  './static/img/francesco/43.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
-					'titoloThumb' => 'giorno',
-					'titoloSlide' => 'giorno',
+					'titoloThumb' => 'Smorfia',
+					'titoloSlide' => 'Smorfia',
 				),
 				array(  
 					'file' =>  './static/img/francesco/14.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
-					'titoloThumb' => 'giorno',
-					'titoloSlide' => 'giorno',
+					'titoloThumb' => 'L\'adone',
+					'titoloSlide' => 'L\'adone',
 				)
 			),
  			'viFraObjList' => array( 
@@ -56,15 +56,15 @@
 					'file' =>  './static/img/vi_fra/39.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
-					'titoloThumb' => 'giorno',
-					'titoloSlide' => 'giorno',
+					'titoloThumb' => 'Dolci coccole (prima parte)',
+					'titoloSlide' => 'Dolci coccole (prima parte)',
 				), */
 				array(  
 					'file' =>  './static/img/vi_fra/65.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
-					'titoloThumb' => 'giorno',
-					'titoloSlide' => 'giorno',
+					'titoloThumb' => 'Dolci coccole (seconda parte)',
+					'titoloSlide' => 'Dolci coccole (seconda parte)',
 				),
 			)
         ));

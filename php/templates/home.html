@@ -25,17 +25,17 @@
 
   <div id="vincenza_links">
   {% for obj in vincenzaObjList %}
-      <a href="{{ obj.file }}_BIG.png" title="{{ obj.titoloSlide | translate | capitalize }}"></a>
+      <a href="{{ obj.file }}" title="{{ obj.titoloSlide | translate | capitalize }}"></a>
   {% endfor %}
   </div>
   <div id="vifra_links">
   {% for obj in viFraObjList %}
-      <a href="{{ obj.file }}_BIG.png" title="{{ obj.titoloSlide | translate | capitalize }}"></a>
+      <a href="{{ obj.file }}" title="{{ obj.titoloSlide | translate | capitalize }}"></a>
   {% endfor %}
   </div>
   <div id="francesco_links">
   {% for obj in francescoObjList %}
-      <a href="{{ obj.file }}_BIG.png" title="{{ obj.titoloSlide | translate | capitalize }}"></a>
+      <a href="{{ obj.file }}" title="{{ obj.titoloSlide | translate | capitalize }}"></a>
   {% endfor %}
   </div>
 
@@ -50,7 +50,7 @@
           <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
         </div>
           {% for obj in vincenzaObjList %}
-            <img data-src="holder.js/100%x200"alt="..." src="./static/img/posta.png" style="margin-bottom: 5px;" onClick="javascript:showGallery('vincenza', {{ loop.counter0 }});">
+            <img alt="..." src="{{obj.file}}" style="margin-bottom: 5px;" onClick="javascript:showGallery('vincenza', {{ loop.counter0 }});">
           {% endfor %}        
       </div>
     </div>
@@ -58,21 +58,24 @@
       <div class="thumbnail">
         <div class="caption">
           <h3 class="font_4 centra">Vincenza & Francesco</h3>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p align ="justify">LEI: Giovane neolaureata, a tre giorni dalla partenza per un’esperienza londinese, viene contattata poiché il suo profilo è stato selezionato tra i tanti per svolgere uno stage inerente il suo curriculum di studio presso gli uffici dei Sistemi Informativi di regione Toscana.
+</br>LUI:Affascinante Ingegnere informatico presso gli stessi uffici della giovane stagista, perennemente insoddisfatto della posizione professionale ricoperta, è sempre alla ricerca dell’occasione giusta per evadere dal mondo del pubblico impiego… Folgorato dalla donzella viene però temporaneamente distolto dalla ricerca della buona occasione rimanendo ancorato, ancora oggi, a sanare quei processi sanitari andati a male. 
+</br>Artefice il destino e complice cupido nacque un grande amore.
+</p>
         </div>
           {% for obj in viFraObjList %}
-            <img data-src="holder.js/100%x200" alt="..." src="./static/img/posta.png" class="img-responsive" style="margin-bottom: 5px; text-align: center;" onClick="javascript:showGallery('vifra', {{ loop.counter0 }});">
+            <img alt="..." src="{{obj.file}}" class="img-responsive" style="margin-bottom: 5px; text-align: center;" onClick="javascript:showGallery('vifra', {{ loop.counter0 }});">
           {% endfor %}        
       </div>
     </div>
     <div class="col-sm-2 col-md-2 col-lg-2">
       <div class="thumbnail">
         <div class="caption">
-          <h3 class="font_4 centra">Francesco (i CASTE)</h3>
+          <h3 class="font_4 centra">Francesco</h3>
           <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
         </div>
           {% for obj in francescoObjList %}            
-            <img data-src="holder.js/100%x200" alt="..." src="./static/img/francesco/test.png" style="margin-bottom: 5px;" onClick="javascript:showGallery('francesco', {{ loop.counter0 }});">
+            <img alt="..." src="{{obj.file}}" style="margin-bottom: 5px;" onClick="javascript:showGallery('francesco', {{ loop.counter0 }});">
           {% endfor %}
         </div>
     </div>

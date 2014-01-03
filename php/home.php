@@ -7,14 +7,21 @@
         	'pagina' => 'home',
         	'vincenzaObjList' => array( 
 				array(  
-					'file' =>  './static/img/vincenza/test',
+					'file' =>  './static/img/vincenza/54.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'salotto',
 					'titoloSlide' => 'salotto',
 				),
 				array(  
-					'file' =>  './static/img/vincenza/test',
+					'file' =>  './static/img/vincenza/46.jpg',
+					'backgroundShiftX' =>  '-38px',
+					'backgroundShiftY' =>  '0px',
+					'titoloThumb' => 'salotto',
+					'titoloSlide' => 'salotto',
+				),
+				array(  
+					'file' =>  './static/img/vincenza/49.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'salotto',
@@ -23,14 +30,21 @@
 			),
  			'francescoObjList' => array( 
 				array(  
-					'file' =>  './static/img/francesco/test',
+					'file' =>  './static/img/francesco/22.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'giorno',
 					'titoloSlide' => 'giorno',
 				),
 				array(  
-					'file' =>  './static/img/francesco/test',
+					'file' =>  './static/img/francesco/43.jpg',
+					'backgroundShiftX' =>  '-38px',
+					'backgroundShiftY' =>  '0px',
+					'titoloThumb' => 'giorno',
+					'titoloSlide' => 'giorno',
+				),
+				array(  
+					'file' =>  './static/img/francesco/97.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'giorno',
@@ -39,14 +53,14 @@
 			),
  			'viFraObjList' => array( 
 				array(  
-					'file' =>  './static/img/vi_fra/test',
+					'file' =>  './static/img/vi_fra/13.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'giorno',
 					'titoloSlide' => 'giorno',
 				),
 				array(  
-					'file' =>  './static/img/vi_fra/test',
+					'file' =>  './static/img/vi_fra/010.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'giorno',

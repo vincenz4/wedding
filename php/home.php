@@ -52,13 +52,13 @@
 				)
 			),
  			'viFraObjList' => array( 
-				array(  
+				/* array(  
 					'file' =>  './static/img/vi_fra/39.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'Dolci coccole (prima parte)',
 					'titoloSlide' => 'Dolci coccole (prima parte)',
-				),
+				), */
 				array(  
 					'file' =>  './static/img/vi_fra/65.jpg',
 					'backgroundShiftX' =>  '-38px',

@@ -52,13 +52,13 @@
 				)
 			),
  			'viFraObjList' => array( 
-				array(  
+				/* array(  
 					'file' =>  './static/img/vi_fra/39.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'giorno',
 					'titoloSlide' => 'giorno',
-				),
+				), */
 				array(  
 					'file' =>  './static/img/vi_fra/65.jpg',
 					'backgroundShiftX' =>  '-38px',

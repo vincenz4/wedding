@@ -32,5 +32,9 @@
 {% block addonscripts %}
 {% endblock addonscripts %}
 
+{% block globalscripts %}
+  $("#fittext_title").fitText(1.0, { minFontSize: '40px', maxFontSize: '72px' });
+{% endblock globalscripts %}
+
 {% block scripts %}
 {% endblock scripts %}

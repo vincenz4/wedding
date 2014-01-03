@@ -57,13 +57,15 @@
 		<!-- Optionally enable responsive features in IE8 -->
     	<script src="./static/js/respond.min.js"></script>
     	<script src="./static/js/holder.js"></script>
+    	<script src="./static/js/jquery.fittext.js"></script>
     	
 	    <script type="text/javascript">
 	      $(function () {
-	        
 	        initPage();
 	      });
 
+		{% block globalscripts %}
+		{% endblock globalscripts %}
 
 		{% block scripts %}
 		{% endblock scripts %}

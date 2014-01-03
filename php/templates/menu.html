@@ -1,35 +1,27 @@
 <!--Body content-->
 <!--div class="centra_nav-bar"-->
-<div class="col-sm-12 col-md-12 col-lg-12">	
+<div class="col-md-12 col-lg-12 hidden-xs hidden-sm">	
   <ul class="nav nav-pills nav-justified font_7">
     <li></li>
-    <li class="{% cssactuallink home %}"><a href="{% hreflink home, home.php %}">Un po' di noi</a></li>
-    <li class="dropdown {% cssactuallink organizziamoci %}">
-    	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Organizziamoci <span class="caret"></span></a>
-    	<ul class="dropdown-menu" role="menu">
-            <li class="{% cssactuallink organizziamoci_arrivare_briatico %}">
-                <a href="{% hreflink organizziamoci_arrivare_briatico, organizziamoci_arrivare_briatico.php%}">Come arrivare</a>
-            </li>
-            <li class="{% cssactuallink organizziamoci_alloggio %}">
-                <a href="{% hreflink organizziamoci_alloggio, organizziamoci_alloggio.php%}">Alloggio</a>
-            </li>
-            <li class="{% cssactuallink organizziamoci_serata_benvenuto %}">
-                <a href="{% hreflink organizziamoci_serata_benvenuto, organizziamoci_serata_benvenuto.php%}">Serata di benvenuto</a>
-            </li>
-            <li class="divider"></li>
-            <li class="{% cssactuallink organizziamoci_cerimonia %}">
-                <a href="{% hreflink organizziamoci_cerimonia, organizziamoci_cerimonia.php%}">Cerimonia</a>
-            </li>
-            <li class="{% cssactuallink organizziamoci_ricevimento %}">
-                <a href="{% hreflink organizziamoci_ricevimento, organizziamoci_ricevimento.php%}">Ricevimento</a>
-            </li>
-            <li class="divider"></li>
-            <li class="{% cssactuallink organizziamoci_calabria %}">
-                <a href="{% hreflink organizziamoci_calabria, organizziamoci_calabria.php%}">La calabria da scoprire</a></li>
-		</ul>    	
-  	</li>
-    <li class="{% cssactuallink istantanee %}"><a href="{% hreflink istantanee, istantanee.php %}">Istantanee</a></li>
-    <li class="{% cssactuallink lista-nozze %}"><a href="{% hreflink lista-nozze, lista-nozze.php %}">Lista Nozze</a></li>
-    <li class="{% cssactuallink posta %}"><a href="{% hreflink posta, posta.php %}">Angolo della posta</a></li>
+    {% include "./menu-item.html" %}
   </ul>
+</div>
+
+<div class="col-xs-12 col-sm-12 visible-xs visible-sm"> 
+    <nav class="navbar navbar-default font_7" role="navigation">
+        <div class="navbar-header" style="background-color: rgb(61, 63, 73);">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="background-color: rgb(61, 63, 73); border-color: rgb(61, 63, 73);">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">                
+                {% include "./menu-item.html" %}
+            </ul>
+        </div><!--/.navbar-collapse-->
+    </nav>    
 </div>

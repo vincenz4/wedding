@@ -54,14 +54,14 @@ body {
   height: auto !important;
   height: 100%;
   /* Negative indent footer by its height */
-  margin: 0 auto -45px;
+  margin: 0 auto -55px;
   /* Pad bottom by footer height */
-  padding: 0 0 57px;
+  padding: 0 0 60px;
 }
 
 /* Set the fixed height of the footer here */
 #footer {
-  height: 57px;
+  height: 60px;
 }
 
 .centra{
@@ -337,3 +337,17 @@ letter-spacing: 1px;
   
 }
 /* END > GMAPS*/
+
+.navbar-nav.nav-justified > li{
+    float:none;
+}
+
+.navbar-default{
+    background-color: rgb(61, 63, 73);
+    border-color: rgb(61, 63, 73);
+}
+
+.navbar-header {
+    background-color: rgb(61, 63, 73);
+    border-color: rgb(61, 63, 73);
+}

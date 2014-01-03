@@ -105,13 +105,13 @@
   function showGallery(nome, indice){
     var links = document.getElementById(nome+'_links').getElementsByTagName('a');
     options = {
-        fullScreen: false,
-        stretchImages: false,
-        index: links[indice],
+      fullScreen: false,
+      stretchImages: false,
+      index: links[indice],
     };
     if (blueimp.Gallery(links, options)) {
-          return false;
-      }
+      return false;
+    }
   };
 
 {% endblock scripts %}

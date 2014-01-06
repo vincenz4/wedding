@@ -170,11 +170,30 @@ a.link:hover{
  -webkit-transition-timing-function: ease;
  -webkit-transition-delay: 0s; 
 }
+a {
+color: rgb(8, 132, 46);
+text-decoration: none;
+}
 
+a:hover, a:focus {
+color: rgb(3, 112, 3);
+font-weight: bold;
+text-decoration: underline;
+}
 .bold{
   font-weight: bold;
 }
 
+.font_10{
+  font-family: Jura, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+  vertical-align: middle;
+  line-height: 1.4em;
+  color: rgb(49, 74, 18);
+  }
 .font_9{
   font-family: shelley, Jura, sans-serif;
   font-size: 17px;

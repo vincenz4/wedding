@@ -1,0 +1,122 @@
+{% extends "./sitebase.html" %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block beforeContent %}
+{% endblock beforeContent %}
+
+{% block content %}
+  <div class="row marginTop20">
+		<blockquote class="pull-right">
+			<p class="font_10 well well-sm">"Da soli si può andare in giro, in due si va sempre da qualche parte"</p>
+			<small><cite style="color:black;">(A. Hitchcock – La donna che visse due volte)</cite></small>
+		</blockquote>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <ul class="nav nav-pills nav-stacked">
+        <li></li>
+        <li class="active"><a href="javascript:setCarousel('album1');"><img src="{{album1_thumb}}" alt=""></a></li>
+        <li class="active"><a href="javascript:setCarousel('album2');"><img src="{{album2_thumb}}" alt=""></a></li>
+      </ul>
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-10">
+
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+       
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div id="carousel-wrapper" class="carousel-inner">
+          <div class="item active">
+            <img src="./static/img/vi_fra_foto/39.jpg" class="img-responsive tales">
+          </div>
+          <div class="item">
+            <img src="./static/img/vi_fra_foto/19.jpg" class="img-responsive tales">
+          </div>
+		      <div class="item">
+            <img src="./static/img/vi_fra_foto/13.jpg" class="img-responsive tales">
+          </div>
+          <div class="item">
+            <img src="./static/img/vi_fra_foto/56.jpg" class="img-responsive tales">
+          </div>
+		      <div class="item">
+            <img src="./static/img/vi_fra_foto/79.jpg" class="img-responsive tales">
+          </div>
+		      <div class="item">
+            <img src="./static/img/vi_fra_foto/45.jpg" class="img-responsive tales">
+          </div>
+		      <div class="item">
+            <img src="./static/img/vi_fra_foto/52.jpg" class="img-responsive tales">
+          </div>
+		      <div class="item">
+            <img src="./static/img/vi_fra_foto/35.jpg" class="img-responsive tales">
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>  
+    </div> 
+  </div> 
+{% endblock content %}
+
+
+{% block addonscripts %}
+{% endblock addonscripts %}
+
+
+{% block scripts %}
+  var album1 = new Array();
+
+  {% for obj in album1 %}    
+    var element = "<div class='item";
+    if({{ loop.counter0 }}==0){
+      element += " active";
+    }
+    element += "'><img src='{{ obj.file }}'></div>";
+    album1[{{ loop.counter0 }}] = element;
+  {% endfor %}
+
+  var album2 = new Array();
+
+  {% for obj in album2 %}
+    var element = "<div class='item";
+    if({{ loop.counter0 }}==0){
+      element += " active";
+    }
+    element += "'><img src='{{ obj.file }}'></div>";
+    album2[{{ loop.counter0 }}] = element;
+  {% endfor %}
+
+	function initPage(){
+    return;
+  }
+
+  function setCarousel(album){
+    $("#carousel-example-generic").carousel('pause');
+
+    var albumCorrente;
+    if(album == 'album1'){
+      albumCorrente = album1;
+    } else if(album == 'album2'){
+      albumCorrente = album2;
+    }
+    $("#carousel-wrapper").empty();
+    $.each(albumCorrente, function( index, value ) {
+      $("#carousel-wrapper").append(value);
+    });      
+
+    $("#carousel-example-generic").carousel(0);
+  }
+
+{% endblock scripts %}

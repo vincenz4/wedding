@@ -161,7 +161,8 @@ body {
   width: 300px;
   text-align: justify;
 }
-a.link:hover{
+
+.panel-body a.link:hover{
  color: rgb(49, 74, 18);
  transition: color 0.4s ease 0s;
  text-decoration: none;
@@ -170,16 +171,18 @@ a.link:hover{
  -webkit-transition-timing-function: ease;
  -webkit-transition-delay: 0s; 
 }
-a {
-color: rgb(8, 132, 46);
-text-decoration: none;
+
+.panel-body a {
+  color: rgb(8, 132, 46);
+  text-decoration: none;
 }
 
-a:hover, a:focus {
-color: rgb(3, 112, 3);
-font-weight: bold;
-text-decoration: underline;
+.panel-body a:hover, a:focus {
+  color: rgb(3, 112, 3);
+  font-weight: bold;
+  text-decoration: underline;
 }
+
 .bold{
   font-weight: bold;
 }
@@ -194,6 +197,7 @@ text-decoration: underline;
   line-height: 1.4em;
   color: rgb(49, 74, 18);
   }
+
 .font_9{
   font-family: shelley, Jura, sans-serif;
   font-size: 17px;

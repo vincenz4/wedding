@@ -8,6 +8,62 @@
         	'album1_thumb' => './static/img/fedi-tr.png',
         	'album1' => array( 
 				array(  
+					'file' =>  './static/img/vi_fra_foto/39.jpg',
+					'backgroundShiftX' =>  '-38px',
+					'backgroundShiftY' =>  '0px',
+					'titoloThumb' => 'Una serata a teatro',
+					'titoloSlide' => 'Una serata a teatro',
+				),
+				array(  
+					'file' =>  './static/img/vi_fra_foto/19.jpg',
+					'backgroundShiftX' =>  '-38px',
+					'backgroundShiftY' =>  '0px',
+					'titoloThumb' => 'Vista fiesolano su Firenze',
+					'titoloSlide' => 'Vista fiesolano su Firenze',
+				),
+				array(  
+					'file' =>  './static/img/vi_fra_foto/13.jpg',
+					'backgroundShiftX' =>  '-38px',
+					'backgroundShiftY' =>  '0px',
+					'titoloThumb' => 'Romanticicismo a fiesole',
+					'titoloSlide' => 'Romanticicismo a fiesole',
+				),
+				array(  
+					'file' =>  './static/img/vi_fra_foto/56.jpg',
+					'backgroundShiftX' =>  '-38px',
+					'backgroundShiftY' =>  '0px',
+					'titoloThumb' => 'Quanta acqua deve passare sotto i ponti ...',
+					'titoloSlide' => 'Quanta acqua deve passare sotto i ponti ...',
+				),
+				array(  
+					'file' =>  './static/img/vi_fra_foto/79.jpg',
+					'backgroundShiftX' =>  '-38px',
+					'backgroundShiftY' =>  '0px',
+					'titoloThumb' => 'Coccole a Tropea',
+					'titoloSlide' => 'Coccole a Tropea',
+				),
+				array(  
+					'file' =>  './static/img/vi_fra_foto/45.jpg',
+					'backgroundShiftX' =>  '-38px',
+					'backgroundShiftY' =>  '0px',
+					'titoloThumb' => 'Coccole, il continuo.',
+					'titoloSlide' => 'Coccole, il continuo.',
+				),
+				array(  
+					'file' =>  './static/img/vi_fra_foto/52.jpg',
+					'backgroundShiftX' =>  '-38px',
+					'backgroundShiftY' =>  '0px',
+					'titoloThumb' => 'Piazza di Spagna',
+					'titoloSlide' => 'Piazza di Spagna',
+				),
+				array(  
+					'file' =>  './static/img/vi_fra_foto/35.JPG',
+					'backgroundShiftX' =>  '-38px',
+					'backgroundShiftY' =>  '0px',
+					'titoloThumb' => 'La fotocopia',
+					'titoloSlide' => 'La fotocopia',
+				),
+				array(  
 					'file' =>  './static/img/vi_fra_foto/54.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
@@ -69,10 +125,7 @@
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'La meditazione',
 					'titoloSlide' => 'La meditazione',
-				)
-			),
-        	'album2_thumb' => './static/img/fedi-tr.png',
- 			'album2' => array( 
+				),
 				array(  
 					'file' =>  './static/img/vi_fra_foto/22.jpg',
 					'backgroundShiftX' =>  '-38px',

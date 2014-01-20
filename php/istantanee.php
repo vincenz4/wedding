@@ -57,7 +57,7 @@
 					'titoloSlide' => 'Piazza di Spagna',
 				),
 				array(  
-					'file' =>  './static/img/vi_fra_foto/35.jpg',
+					'file' =>  './static/img/vi_fra_foto/35.JPG',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
 					'titoloThumb' => 'La fotocopia',

@@ -2,7 +2,7 @@
 	date_default_timezone_set('Europe/Rome');
 	header("Content-Type: text/javascript; charset=utf-8");
 
-	$recipient = "castellani.f@gmail.com";
+	$recipient = "info@11maggio2014.it";
 
 	$messages = array (
 		"errore_sicurezza" => array(
@@ -126,14 +126,16 @@
 			$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
 			// Enter a subject, only you will see this so make it useful
-			$subject = "$name for $type";
+			$subject = "[INFO 11 Maggio 2014] - Richiesta info da sito matrimonio";
 
 			// Build form content
 			$mailbody = '<html><body>';
 
 			$mailbody .= '<p>';
 			$mailbody .= '<span><b>Ti è arrivato un nuovo messaggio</b></span><br/>';
-			$mailbody .= '<span>via: www.yourhomesinflorence.com</span>';
+			$mailbody .= '<span>via: www.11maggio2014.it</span>';
+			$mailbody .= '</p>';
+			$mailbody .= '<br/>';
 
 			$mailbody .= '<p>';
 			$mailbody .= '<span><b>Dettaglio del messaggio</b></span><br/>';
@@ -143,6 +145,7 @@
 			$mailbody .= '<span>Lingua: '. $lang .'</span><br/>';
 			$mailbody .= '<span>Oggetto: '. $type .'</span><br/>';
 			$mailbody .= '</p>';
+			$mailbody .= '<br/>';
 
 			$mailbody .= '<p>';
 			$mailbody .= '<span><b>Messaggio</b></span><br/>';

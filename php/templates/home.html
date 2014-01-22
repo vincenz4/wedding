@@ -46,7 +46,7 @@
     <div class="col-sm-2 col-md-2 col-lg-2 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
       <div class="thumbnail">
         <div class="caption">
-          <h3 class="font_4 centra">Vincenza</h3>
+          <h3 id="fittext_caption_vi" class="font_4 centra">Vincenza</h3>
           <p align="justify">"Chi non ama le donne, il vino e il canto, è solo un matto e non un santo."<br/><i>(A. Schopenhauer)</i></p>
         </div>
           {% for obj in vincenzaObjList %}
@@ -57,7 +57,7 @@
     <div class="col-sm-6 col-md-6 col-lg-6">
       <div class="thumbnail">
         <div class="caption">
-          <h3 class="font_4 centra">Vincenza & Francesco</h3>
+          <h3 id="fittext_caption_vi_fra" class="font_4 centra">Vincenza & Francesco</h3>
           <p align="justify">
             LEI: Giovane neolaureata, a tre giorni dalla partenza per un’esperienza londinese, viene contattata poiché il suo profilo è stato selezionato tra i tanti per svolgere uno stage inerente il suo curriculum di studio presso gli uffici dei Sistemi Informativi di Regione Toscana.
           <br/>
@@ -74,7 +74,7 @@
     <div class="col-sm-2 col-md-2 col-lg-2">
       <div class="thumbnail">
         <div class="caption">
-          <h3 class="font_4 centra">Francesco</h3>
+          <h3 id="fittext_caption_fra" class="font_4 centra">Francesco</h3>
           <p align="justify">"Che la tua amata sia più giovane di te, o il tuo affetto per lei non durerà."<br/><i>(W. Shakespeare)</i></p>
         </div>
           {% for obj in francescoObjList %}            
@@ -95,6 +95,11 @@
     <script src="./static/js/blueimp-helper.js"></script>
 {% endblock addonscripts %}
 
+{% block globalscripts %}
+  $("#fittext_caption_vi").fitText(0.9, { minFontSize: '14px', maxFontSize: '25px' });
+  $("#fittext_caption_vi_fra").fitText(0.8, { minFontSize: '18px', maxFontSize: '25px' });
+  $("#fittext_caption_fra").fitText(0.9, { minFontSize: '14px', maxFontSize: '25px' });
+{% endblock globalscripts %}
 
 {% block scripts %}
 

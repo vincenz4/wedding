@@ -10,8 +10,8 @@
 					'file' =>  './static/img/vi_fra_foto/54.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
-					'titoloThumb' => 'in bicicletta',
-					'titoloSlide' => 'in bicicletta',
+					'titoloThumb' => 'In bicicletta',
+					'titoloSlide' => 'In bicicletta',
 				),
 				array(  
 					'file' =>  './static/img/vi_fra_foto/46.jpg',
@@ -63,8 +63,8 @@
 					'file' =>  './static/img/vi_fra_foto/65.jpg',
 					'backgroundShiftX' =>  '-38px',
 					'backgroundShiftY' =>  '0px',
-					'titoloThumb' => 'Dolci coccole (seconda parte)',
-					'titoloSlide' => 'Dolci coccole (seconda parte)',
+					'titoloThumb' => 'Dolci coccole',
+					'titoloSlide' => 'Dolci coccole',
 				),
 			)
         ));

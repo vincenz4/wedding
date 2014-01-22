@@ -106,15 +106,29 @@
 	            
 			    $.getJSON('mail.php?contactFormSubmitted=yes&'+$('#contact-form').serialize(), function(data){
 		        	var testo;
-		        	console.log("Stato del messaggio: " + data.status);
+		        	
+		        	<!-- console.log("Stato del messaggio: " + data.status); -->
+					//NAscono il bottone invio
+					$('#btnInvio').hide();
+
 		        	if(data.status == '0'){
 		          		testo = "<div id=\"idAlert\" class=\"alert alert-success\">";
-		          		$('#btnInvio').prop('disabled', true);
+		          		<!-- $('#btnInvio').prop('disabled', true); -->
 		        	} else {
 		          		testo = "<div id=\"idAlert\" class=\"alert alert-error\">";
 		        	}
 		        	testo += data.messaggio+"<\div>";
 		        	$('#formResponse').append(testo);
+
+		        	//Faccio scomparire il messaggio di allert
+	          		$('#idAlert').hide(4000, 'easeInQuint', function() {
+						$('#idAlert').remove();
+						$('#btnInvio').show();
+						$('#iNome').val('');
+						$('#iEmail').val('');
+						$('#iOggetto').val('');
+						$('#iMessaggio').val('');
+					});
 			    });
 
             	return false; // ajax used, block the normal submit

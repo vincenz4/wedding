@@ -41,7 +41,12 @@
 {% endblock content %}
 
 {% block addonscripts %}
-<script src="./static/js/jquery.validate.min.js"></script>
+	{% if DEBUG_ENABLE %}
+	    <script src="./static/js/jquery-ui-1.10.4.custom.js"></script>
+	{% else %}
+	    <script src="./static/js/jquery-ui-1.10.4.custom.min.js"></script>
+	{% endif %}
+	<script src="./static/js/jquery.validate.min.js"></script>
 {% endblock addonscripts %}
 
 {% block scripts %}

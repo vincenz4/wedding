@@ -2,8 +2,8 @@
 	date_default_timezone_set('Europe/Rome');
 	header("Content-Type: text/javascript; charset=utf-8");
 
-	$recipient = "info@11maggio2014.it";
-	// $recipient = "castellani.f@gmail.com";
+	// $recipient = "info@11maggio2014.it";
+	$recipient = "castellani.f@gmail.com";
 
 	$messages = array (
 		"errore_sicurezza" => array(

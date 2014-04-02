@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Prenotazione</title>
+
+<script src="./static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+function invia(){
+	var URL = "http://www.follieviaggi.it/lib/php/ckcode.php";
+	$.ajax({
+		type: "POST",
+		url:URL,
+		data:{id_list:'69', cod_list:'140514z'},
+	  	crossDomain:true,
+	  	dataType:"json",
+		}).done(function(data) {
+			alert('fatto');
+			console.log(data);		
+	});
+
+	// $('#container').append("<iframe src='http://www.follieviaggi.it/lista.php?lista=69'></iframe>");	
+}
+
+function invia_web_proxy(){
+	var URL = "web_proxy.php";
+	var path = "lib/php/ckcode.php?id_list=69&cod_list=140514z";
+	$.ajax({
+		type: "POST",
+		url:URL,
+		data:{yws_path:'path'},
+		}).done(function(data) {
+			alert('fatto');
+			console.log(data);
+	});
+}
+
+function invia2(){
+
+	var win = window.open("http://www.follieviaggi.it/lista.php?lista=69");
+	win.close();
+	win = window.open("http://www.follieviaggi.it/lista.php?lista=69");
+
+}
+
+function invia3(){
+	$( "#idForm2" ).submit();
+}
+
+function invia4(){
+	var myWindow = window.open('', 'formresult', 'scrollbars=no,menubar=no,height=600,width=800,resizable=yes,toolbar=no,status=no');
+	$( "#idForm2" ).submit();
+	$( "#idForm3" ).submit();
+}
+
+</script>
+</head>
+<body>
+<div id="container">
+
+<form id="idForm2" action="http://www.follieviaggi.it/lib/php/ckcode.php" method="post" target="formresult">
+	<input type='hidden' name='id_list' value='69'>
+	<input type='hidden' name='cod_list' value='140514z'>
+
+	<table>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="button" value="cancella" id="cancella"></input>
+			</td>
+		</tr>
+	</table>
+
+</form>
+
+
+<IFRAME name="hidden-form"></IFRAME>  
+
+<script type="text/javascript">
+
+function serializePost(form) {
+    var data = {};
+    form = $(form).serializeArray();
+    for (var i = form.length; i--;) {
+        var name = form[i].name;
+        var value = form[i].value;
+        var index = name.indexOf('[]');
+        if (index > -1) {
+            name = name.substring(0, index);
+            if (!(name in data)) {
+                data[name] = [];
+            }
+            data[name].push(value);
+        }
+        else
+            data[name] = value;
+    }
+    return data;
+}
+
+var elem = $('#cancella');
+	elem.on('click', function(e){
+	invia_web_proxy();
+});
+
+/* 
+elem.on('click', function(e){
+	$('#operation2').val('deleteReservation');
+	console.log(serializePost($('#idForm2')));
+	var URL = "http://localhost:8080/calendarGateway/entrypoint";
+	$.ajax({
+		type: "POST",
+		url:URL,
+		data:serializePost($('#idForm2')),
+	  	crossDomain:true,
+	  	dataType:"jsonp",
+	  	jsonp:"jsoncallback"
+  	}).done(function(data) {
+  		alert('fatto');
+		console.log(data);
+		console.log(data.header.status);
+		if(data.header.status == 1){		
+			alert(data.body.errorMessage);
+		} else {
+			alert(data.body.messaggio);
+		}	
+	});
+});
+*/
+
+</script>
+</div>
+</body>
+</html>

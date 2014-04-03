@@ -65,12 +65,21 @@
 }
 
 /** Scale Caption :hover Behaviour **/
-#mainwrapper .box:hover #image-3 {
+/*#mainwrapper .box:hover #image-3 {
 	-moz-transform: scale(1.4);
 	-o-transform: scale(1.4);
 	-webkit-transform: scale(1.4);
 	transform: scale(1.4);
 }
+*/
+#mainwrapper .box:hover #image-3 {
+	-webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
 
 .font_titolo{
   font-family: shelley, sans-serif;
@@ -107,7 +116,7 @@
 	</div>
 
 
-	<div class="row">
+	<!--div class="row">
 		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -145,15 +154,29 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div-->
 
-	<div class="row" id="thumbrow">
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title font_4">Alla scoperta di ... Giappone e Thailandia.</h3>
+				</div>
+				<div class="panel-body">
+					<p style="font-size:14px;">
+						Terra ricca di storia cultura e natura, tra antico e moderno, la nostra luna di miele sarà principalmente alla scoperta del Giappone. Paese pieno di tradizioni ed espressioni artistiche abbiamo pensato al nostro viaggio di nozze come l’occasione per scoprire tutti i volti di una terra perfettamente sconosciuta, un itinerario per addentrarsi nella tradizione e nella modernità della cultura giapponese. Da Tokyo ad Osaka per conoscere il lato più moderno, tecnologico e dinamico del Giappone e quello più antico e affascinate. Un tour che attraversa le prefetture di Gifu ed Ishikawa alla scoperta di alcune tra le località più storiche del Giappone, quelle degli antichi villaggi di Takayama, Shirakawa go e Kanazawa senza tralasciare Kyoto, antica capitale imperiale disseminata di santuari, palazzi, pagode, templi e opere d’arte; Hiroshima e l’incantevole isola di Miyajima e dulcis in fundo Osaka dove ci attenderà un volo che ci porterà su un’isola paradisiaca nella terra delle palme e delle noci di cocco… Kho Samui in Thailandia! Trascorreremo qui gli ultimi giorni di un viaggio meraviglioso, in totale relax, lasciandoci cullare da paesaggi mozzafiato, acque verdi smeraldo e piacevoli massaggi thailandesi.</p>
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--div class="row">
 		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">   
 			<h3 class="panel-title font_4">Alla scoperta di ... Giappone e Thailandia.</h3>
 			<p style="font-size:14px;">
 				Terra ricca di storia cultura e natura, tra antico e moderno, la nostra luna di miele sarà principalmente alla scoperta del Giappone. Paese pieno di tradizioni ed espressioni artistiche abbiamo pensato al nostro viaggio di nozze come l’occasione per scoprire tutti i volti di una terra perfettamente sconosciuta, un itinerario per addentrarsi nella tradizione e nella modernità della cultura giapponese. Da Tokyo ad Osaka per conoscere il lato più moderno, tecnologico e dinamico del Giappone e quello più antico e affascinate. Un tour che attraversa le prefetture di Gifu ed Ishikawa alla scoperta di alcune tra le località più storiche del Giappone, quelle degli antichi villaggi di Takayama, Shirakawa go e Kanazawa senza tralasciare Kyoto, antica capitale imperiale disseminata di santuari, palazzi, pagode, templi e opere d’arte; Hiroshima e l’incantevole isola di Miyajima e dulcis in fundo Osaka dove ci attenderà un volo che ci porterà su un’isola paradisiaca nella terra delle palme e delle noci di cocco… Kho Samui in Thailandia! Trascorreremo qui gli ultimi giorni di un viaggio meraviglioso, in totale relax, lasciandoci cullare da paesaggi mozzafiato, acque verdi smeraldo e piacevoli massaggi thailandesi.</p>
 		</div>
-	</div>
+	</div-->
 	
 	<div class="row" id="thumbrow">		
 		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">  
@@ -167,7 +190,7 @@
 				<div id="mainwrapper">
 					<div id="box-{{loop.counter}}" class="box" style="width: {{obj.width}}px;height: {{obj.height}}px;">
 						<img id="image-3" src="{{imageBaseUrl}}{{obj.file}}" style="width: {{obj.width}}px;height: {{obj.height}}px;" alt="{{obj.alternate}}"/>
-						<span class="caption fade-caption" id="span-1" style="width: {{obj.width}}px;height: {{obj.height}}px;">
+						<span class="caption fade-caption" id="span-1" style="width: {{obj.width}}px;height: {{obj.height}}px; background-image: url(./static/img/present-icon.jpeg)">
 							<p class="font_titolo">{{obj.title}}</p>
 							<p class="font_body">
 								<marquee direction="up" scrolldelay="200">

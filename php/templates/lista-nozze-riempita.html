@@ -1,24 +1,23 @@
 {% extends "./sitebase.html" %}
 
 {% block styles %}
-	<style type="text/css">
+
+<style type="text/css">
 
 #mainwrapper {
 	font: 10pt normal Arial, sans-serif;
 	margin: 0px 15px 0 30px;
-	/*text-align: center;*/
+	text-align: center;
 }
 
 /* Image Box Style */
 #mainwrapper .box {
-	border: 5px solid #fff;
+	border: 4px solid #fff;
 	cursor: pointer;
 	float: left;
-	margin: 5px;
+	margin: 7px;
 	position: relative;
 	overflow: hidden;
-	/*width: 300px;
-	height: 300px;*/
 	-webkit-box-shadow: 1px 1px 1px 1px #ccc;
 	-moz-box-shadow: 1px 1px 1px 1px #ccc;
 	box-shadow: 1px 1px 1px 1px #ccc;
@@ -27,9 +26,7 @@
 #mainwrapper .box img {
 	position: absolute;
 	left: 0;
-/*	width: 300px;
-	height: 300px;
-*/	-webkit-transition: all 300ms ease-out;
+	-webkit-transition: all 300ms ease-out;
 	-moz-transition: all 300ms ease-out;
 	-o-transition: all 300ms ease-out;
 	-ms-transition: all 300ms ease-out;	
@@ -72,12 +69,14 @@
 	transform: scale(1.4);
 }
 */
-#mainwrapper .box:hover #image-3 {
+#mainwrapper .box:hover .image {
 	-webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
     -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: 0.5s;
 }
 
 
@@ -86,22 +85,49 @@
   font-size: 26px;
   font-style: normal;
   font-variant: normal;
-  font-weight: normal;
+  font-weight: middle;
   line-height: 1.4em;
   color: rgb(49, 74, 18);
 }
 .font_body{
-  font-family: shelley, sans-serif;
-  font-size: 20px;
-  font-style: normal;
+  font-family: Jura, sans-serif;
+  font-size: 14px;
+  font-style: italic;
   font-variant: normal;
   font-weight: normal;
-  line-height: 1.0em;
+  vertical-align: bold;
+  line-height: 1.4em;
   color: rgb(100, 112, 127);
 }
 
  	</style>
 {% endblock styles %}
+
+{% block beforeContent %}
+	<div class="modal fade" id="infoLista" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header" style="background-color:#f5f5f5;">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title font_titolo" id="myModalLabel">Info lista</h4>
+	      </div>
+ 	      <div class="modal-body font_body">Puoi partecipare alla nostra lista viaggi .... 
+ 	      	<ul>
+				<li>direttamente presso Follie Viaggi a Prato in Via Carlo Marx 32/34, Tel. 0574605948/605966</li>
+				<li>effettuando un bonifico bancario a: <br/> 
+					Vincenza Orlando e Francesco Castellani <br/>
+					IBAN: IT12P0340201601000000039606 <br/>
+					Banca: Webank <br/>
+					Causale: Regalo matrimonio <br/>
+				</li>
+				<li>mediante carta di credito/paypal collegandoti <a href="http://www.follieviaggi.it/liste-di-nozze.php" target="_blank">qui</a> utilizzando il <u>CODICE: 140514z</u></li>
+			</ul>
+			E cosa più importante lasciaci un pensiero <a href="./posta.php">qui</a>.
+	      </div>
+		</div>
+	  </div>
+	</div>
+{% endblock beforeContent %}
 
 {% block content %}
   
@@ -110,51 +136,12 @@
 			<p class="font_10 well well-sm">"Chi ha viaggiato conosce molte cose, <br/>chi ha molta esperienza parlerà con intelligenza. <br/>Chi non ha avuto delle prove, poco conosce; <br/>chi ha viaggiato ha accresciuto l'accortezza."</p>
 			<small><cite style="color:black;">(Siracide, Antico Testamento)</cite></small>
 		</blockquote>
+	</div>
+	<div class="row">
 		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">   
-			<p class="font_4 centra">La lista di nozze</p>
+			<p class="font_2 centra" id="fittext_caption_title">La lista di nozze</p>
 		</div>
 	</div>
-
-
-	<!--div class="row">
-		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title font_4">Alla scoperta di ... Giappone e Thailandia.</h3>
-				</div>
-				<div class="panel-body">
-					<p style="font-size:14px;">
-						Terra ricca di storia cultura e natura, tra antico e moderno, la nostra luna di miele sarà principalmente alla scoperta del Giappone. Paese pieno di tradizioni ed espressioni artistiche abbiamo pensato al nostro viaggio di nozze come l’occasione per scoprire tutti i volti di una terra perfettamente sconosciuta, un itinerario per addentrarsi nella tradizione e nella modernità della cultura giapponese. Da Tokyo ad Osaka per conoscere il lato più moderno, tecnologico e dinamico del Giappone e quello più antico e affascinate. Un tour che attraversa le prefetture di Gifu ed Ishikawa alla scoperta di alcune tra le località più storiche del Giappone, quelle degli antichi villaggi di Takayama, Shirakawa go e Kanazawa senza tralasciare Kyoto, antica capitale imperiale disseminata di santuari, palazzi, pagode, templi e opere d’arte; Hiroshima e l’incantevole isola di Miyajima e dulcis in fundo Osaka dove ci attenderà un volo che ci porterà su un’isola paradisiaca nella terra delle palme e delle noci di cocco… Kho Samui in Thailandia! Trascorreremo qui gli ultimi giorni di un viaggio meraviglioso, in totale relax, lasciandoci cullare da paesaggi mozzafiato, acque verdi smeraldo e piacevoli massaggi thailandesi.</p>
-					<br>	
-
-
-					<div class="row">	  	
-					{% for obj in objList %}
-						{% rowchange obj objList %}
-						{% if !stessaRiga %}
-							</div>
-			    			<div class="row">
-			    		{% endif %}
-						<div id="mainwrapper">
-							<div id="box-{{loop.counter}}" class="box" style="width: {{obj.width}}px;height: {{obj.height}}px;">
-								<img id="image-3" src="{{imageBaseUrl}}{{obj.file}}" style="width: {{obj.width}}px;height: {{obj.height}}px;" alt="{{obj.alternate}}"/>
-								<span class="caption fade-caption" id="span-1" style="width: {{obj.width}}px;height: {{obj.height}}px;">
-									<p class="font_titolo">{{obj.title}}</p>
-									<p class="font_body">
-										<marquee direction="up" scrolldelay="200">
-											{{obj.body}}
-										</marquee>
-									</p>
-								</span>
-							</div>
-						</div>
-					{% endfor %}
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div-->
 
 	<div class="row">
 		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
@@ -166,21 +153,64 @@
 					<p style="font-size:14px;">
 						Terra ricca di storia cultura e natura, tra antico e moderno, la nostra luna di miele sarà principalmente alla scoperta del Giappone. Paese pieno di tradizioni ed espressioni artistiche abbiamo pensato al nostro viaggio di nozze come l’occasione per scoprire tutti i volti di una terra perfettamente sconosciuta, un itinerario per addentrarsi nella tradizione e nella modernità della cultura giapponese. Da Tokyo ad Osaka per conoscere il lato più moderno, tecnologico e dinamico del Giappone e quello più antico e affascinate. Un tour che attraversa le prefetture di Gifu ed Ishikawa alla scoperta di alcune tra le località più storiche del Giappone, quelle degli antichi villaggi di Takayama, Shirakawa go e Kanazawa senza tralasciare Kyoto, antica capitale imperiale disseminata di santuari, palazzi, pagode, templi e opere d’arte; Hiroshima e l’incantevole isola di Miyajima e dulcis in fundo Osaka dove ci attenderà un volo che ci porterà su un’isola paradisiaca nella terra delle palme e delle noci di cocco… Kho Samui in Thailandia! Trascorreremo qui gli ultimi giorni di un viaggio meraviglioso, in totale relax, lasciandoci cullare da paesaggi mozzafiato, acque verdi smeraldo e piacevoli massaggi thailandesi.</p>
 					<br>
+					<p style="font-size:14px;">
+						<a onClick='javascript:showInfoLista();'>INFO LISTA</a>
+					</p>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!--div class="row">
-		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">   
-			<h3 class="panel-title font_4">Alla scoperta di ... Giappone e Thailandia.</h3>
-			<p style="font-size:14px;">
-				Terra ricca di storia cultura e natura, tra antico e moderno, la nostra luna di miele sarà principalmente alla scoperta del Giappone. Paese pieno di tradizioni ed espressioni artistiche abbiamo pensato al nostro viaggio di nozze come l’occasione per scoprire tutti i volti di una terra perfettamente sconosciuta, un itinerario per addentrarsi nella tradizione e nella modernità della cultura giapponese. Da Tokyo ad Osaka per conoscere il lato più moderno, tecnologico e dinamico del Giappone e quello più antico e affascinate. Un tour che attraversa le prefetture di Gifu ed Ishikawa alla scoperta di alcune tra le località più storiche del Giappone, quelle degli antichi villaggi di Takayama, Shirakawa go e Kanazawa senza tralasciare Kyoto, antica capitale imperiale disseminata di santuari, palazzi, pagode, templi e opere d’arte; Hiroshima e l’incantevole isola di Miyajima e dulcis in fundo Osaka dove ci attenderà un volo che ci porterà su un’isola paradisiaca nella terra delle palme e delle noci di cocco… Kho Samui in Thailandia! Trascorreremo qui gli ultimi giorni di un viaggio meraviglioso, in totale relax, lasciandoci cullare da paesaggi mozzafiato, acque verdi smeraldo e piacevoli massaggi thailandesi.</p>
-		</div>
-	</div-->
+
+<script type="text/javascript">
+	var images = [];
+	var rowWidth = [];
+	var imagesMatrix = [];
+	function Image(){
+		this.id;
+		this.row;
+		this.column;
+        this.file;
+        this.width;
+        this.height;
+        this.alternate;
+        this.title;
+        this.body;
+        this.initialize = function(id, row, column, file, width, height, alternate, title, body) {
+			this.id = id;
+			this.row = row;
+			this.column = column;
+	        this.file = file;
+	        this.width = width;
+	        this.height = height;
+	        this.alternate = alternate;
+	        this.title = title;
+	        this.body = body;
+    	};
+	}
+	var currentRow = 1;
+	var idStart = 0;
+	var counter = 0;
+	{% for obj in objList %}
+		var image = new Image();
+		image.initialize({{loop.counter}}, {{obj.row}}, {{obj.column}}, '{{imageBaseUrl}}{{obj.file}}', {{obj.width}}, {{obj.height}}, '{{obj.alternate}}', '{{obj.title}}', '{{obj.body}}');
+		images.push(image);
+		if(currentRow != image.row){
+			currentRow = image.row;
+			imagesMatrix.push(images.slice(idStart, counter)); //Counter è escluso slice lavora cosi' [)
+			idStart = counter;
+		}
+		counter = counter + 1;
+	{% endfor %}
+	if(idStart < counter){
+		imagesMatrix.push(images.slice(idStart, images.length)); //Counter è escluso slice lavora cosi' [)
+	}
+	images = null;
+</script>
+
 	
-	<div class="row" id="thumbrow">		
+	<div class="row">		
 		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">  
-			<div class="row">	  	
+			<div class="row" id="thumbrow">	  	
 			{% for obj in objList %}
 				{% rowchange obj objList %}
 				{% if !stessaRiga %}
@@ -188,16 +218,7 @@
 	    			<div class="row">
 	    		{% endif %}
 				<div id="mainwrapper">
-					<div id="box-{{loop.counter}}" class="box" style="width: {{obj.width}}px;height: {{obj.height}}px;">
-						<img id="image-3" src="{{imageBaseUrl}}{{obj.file}}" style="width: {{obj.width}}px;height: {{obj.height}}px;" alt="{{obj.alternate}}"/>
-						<span class="caption fade-caption" id="span-1" style="width: {{obj.width}}px;height: {{obj.height}}px; background-image: url(./static/img/present-icon.jpeg)">
-							<p class="font_titolo">{{obj.title}}</p>
-							<p class="font_body">
-								<marquee direction="up" scrolldelay="200">
-									{{obj.body}}
-								</marquee>
-							</p>
-						</span>
+					<div id="box-{{loop.counter}}" class="box" style="height: {{obj.height}}px;">
 					</div>
 				</div>
 			{% endfor %}
@@ -208,69 +229,168 @@
 
 {% endblock content %}
 
-{% block scripts %}
-	var originalDivContainerWidth;
-	var originalDivContainerHeight;
+{% block addonscripts %}
+    {% if DEBUG_ENABLE %}
+        <script src="./static/js/blueimp-gallery.js"></script>
+    {% else %}
+        <script src="./static/js/blueimp-gallery.min.js"></script>
+    {% endif %}
+    <script src="./static/js/blueimp-helper.js"></script>
+{% endblock addonscripts %}
 
-	var originalObjWidth;
-	var originalObjHeight;
+{% block scripts %}
+	//Variabili statiche
+	var elementiPerRiga = 3;
+	var riduzioneDimensioneContenitore = 120;
+	var riduzioneDimensioneBox = 25;
+
+	var originalDivContainerWidth;
 
 	var minWidth = 150;
 
-	function initPage(){
-		originalDivContainerWidth = $("#thumbrow").width();		
-		originalDivContainerHeight = $("#thumbrow").height();
+	var idMaxRowWidth = 0;
 
-		originalObjWidth = $("#image-3").width();		
-		originalObjHeight = $("#image-3").height();
-/*
-		alert($("#thumbrow").width());
-		alert($("#thumbrow").innerWidth());
-		alert($("#thumbrow").outerWidth());
-		alert($("#thumbrow").height());
-		alert($("#thumbrow").innerHeight());
-		alert($("#thumbrow").outerHeight());
-*/
+	function initPage(){
+		originalDivContainerWidth = $("#thumbrow").innerWidth() - riduzioneDimensioneContenitore;
+
+		for(var j=0; j< imagesMatrix.length; j++){
+			//Inizializzo il vettore delle dimensioni tenendo conto del bordo e del margine
+			rowWidth[j] = 0;
+
+			for(var i=0; i< imagesMatrix[j].length; i++){
+				//Devo tenere conto del bordo e del margine
+				rowWidth[j] += imagesMatrix[j][i].width + riduzioneDimensioneBox;
+
+				$('#box-'+imagesMatrix[j][i].id).css('width', imagesMatrix[j][i].width+'px');
+				var element = " ";
+
+				element = element + "<a onClick='javascript:showInfoLista();'>";
+				element = element + "<img class='image' id='image-"+imagesMatrix[j][i].id+"' src='"+imagesMatrix[j][i].file+"' style='width: "+imagesMatrix[j][i].width+"px;height: "+imagesMatrix[j][i].height+"px;' alt='"+imagesMatrix[j][i].alternate+"'/>";
+
+				element = element + "<span class='caption fade-caption' id='span-"+imagesMatrix[j][i].id+"' style='width: "+imagesMatrix[j][i].width+"px;height: "+imagesMatrix[j][i].height+"px; background-color: white; background-image: url(./static/img/gift_box.png); background-size:80px 80px; background-position: right bottom; background-repeat: no-repeat;'>";
+
+				element = element + "<p class='font_titolo'>"+imagesMatrix[j][i].title+"</p>";
+//				element = element + "<p class='font_body'><marquee direction='up' scrolldelay='200'>"+imagesMatrix[j][i].body+"</marquee></p>";
+//				element = element + "<p class='font_body'>"+imagesMatrix[j][i].body+"</p>";
+				element = element + "<p class='font_body'>Agenzia di viaggio Follie Viaggi.<br/> C/C Vincenza e Francesco IBAN: IT12P0340201601000000039606<br/></p>";
+				element = element + "</span>";
+				element = element + "</a>";
+
+
+				$('#box-'+imagesMatrix[j][i].id).append(element);
+			}
+			//Imposto l'indice della riga più lunga
+			if(rowWidth[j] > rowWidth[idMaxRowWidth]){
+				idMaxRowWidth = j;
+			}
+		}
+
+		//Adatto per arrivare al 100%
+		var newMaxRowWidth = adatta(idMaxRowWidth);
+		if(newMaxRowWidth>10){
+			for(var j=0; j< imagesMatrix.length; j++){
+				if(j != idMaxRowWidth){
+					var valoreIncremento = Math.round( ((originalDivContainerWidth-rowWidth[j]) / originalDivContainerWidth) * 100);
+
+					var newRowWidth = 0;
+					var elementiPresentiPerRiga = 0;
+					for(var i=0; i< imagesMatrix[j].length; i++){
+						var incremento = Math.round(imagesMatrix[j][i].width*valoreIncremento/100);
+						var width = imagesMatrix[j][i].width + incremento;
+
+						newRowWidth += width;
+						elementiPresentiPerRiga += 1;
+					}
+					if(elementiPresentiPerRiga >= elementiPerRiga){
+						var widthAdjusting = Math.round((newMaxRowWidth - newRowWidth)/elementiPresentiPerRiga);
+						for(var i=0; i< imagesMatrix[j].length; i++){
+							var incremento = Math.round(imagesMatrix[j][i].width*valoreIncremento/100);
+							var width = imagesMatrix[j][i].width + incremento + widthAdjusting;
+
+							if(width > minWidth){
+								imagesMatrix[j][i].width = width;
+
+								$('#box-'+imagesMatrix[j][i].id).css('width', width+'px');
+								$('#image-'+imagesMatrix[j][i].id).css('width', width+'px');
+								$('#span-'+imagesMatrix[j][i].id).css('width', width+'px');
+							}
+						}
+					}
+				}
+			}
+		}
+
  		return;
 	}
 
+	function adatta(indice){
+		var valoreIncremento = Math.round( ((originalDivContainerWidth-rowWidth[indice]) / originalDivContainerWidth) * 100);
+		var newRowWidth = 0;
+		for(var i=0; i< imagesMatrix[indice].length; i++){
+			var incremento = Math.round(imagesMatrix[indice][i].width*valoreIncremento/100);
+
+			var width = imagesMatrix[indice][i].width + incremento;
+
+			if(width > minWidth){
+				imagesMatrix[indice][i].width = width;
+				$('#box-'+imagesMatrix[indice][i].id).css('width', width+'px');
+				$('#image-'+imagesMatrix[indice][i].id).css('width', width+'px');
+				$('#span-'+imagesMatrix[indice][i].id).css('width', width+'px');
+			} 
+
+			newRowWidth += imagesMatrix[indice][i].width;
+
+		}
+		return newRowWidth;
+	}
+
+	function resizeElement(indice, actualDivContainerWidth){
+		for(var i=0; i< imagesMatrix[indice].length; i++){
+			var actualObjWidth = $('#image-'+imagesMatrix[indice][i].id).width();	
+//			console.log(' Actual Image Width >> ' + actualObjWidth );
+
+			var originalObjWidth = imagesMatrix[indice][i].width;
+//			console.log(' Orginal Image Width >> ' + originalObjWidth );
+
+			/* Percentuale da scalare */
+			var scalingPercent = ((originalDivContainerWidth - actualDivContainerWidth)/originalDivContainerWidth)*100;
+//			console.log('scalingPercent >> ' + scalingPercent);
+
+			var scalingValue = Math.round( ( (originalObjWidth * scalingPercent)/100 ) );
+//			console.log('scalingValue >> ' + scalingValue);
+
+			var newWidth;
+			if(scalingPercent < 0){
+				/* Devo aggiungere alla dimensione iniziale */
+				newWidth = originalObjWidth + (scalingValue*-1);
+			} else {
+				/* Devo togliere alla dimensione iniziale */
+				newWidth = originalObjWidth - scalingValue;
+			}
+			if(newWidth > minWidth){
+				$('#box-'+imagesMatrix[indice][i].id).css('width', newWidth+'px');
+				$('#image-'+imagesMatrix[indice][i].id).css('width', newWidth+'px');
+				$('#span-'+imagesMatrix[indice][i].id).css('width', newWidth+'px');
+//				console.log('New width >> ' + newWidth);
+			}
+		}
+	}
+
 	window.onresize=function(){
-		console.log('original Div Container Width >> ' + originalDivContainerWidth);
+//		console.log('original Div Container Width >> ' + originalDivContainerWidth);
 
-		var actualDivContainerWidth = $("#thumbrow").width();		
-		var actualDivContainerHeight = $("#thumbrow").height();
-		console.log('actual Div Container Width >> ' + actualDivContainerWidth);
+		var actualDivContainerWidth = $("#thumbrow").width() - riduzioneDimensioneContenitore;;		
+//		console.log('actual Div Container Width >> ' + actualDivContainerWidth);
 
-		var actualObjWidth = $("#image-3").width();		
-		var actualObjHeight = $("#image-3").height();
-		console.log(' Orginal Image Width >> ' + originalObjWidth);
-
-		/* Percentuale da scalare */
-		var scalingPercent = ((originalDivContainerWidth - actualDivContainerWidth)/originalDivContainerWidth)*100;
-		console.log('scalingPercent >> ' + scalingPercent);
-
-		var scalingValue = Math.round( ( (originalObjWidth * scalingPercent)/100 ) );
-		console.log('scalingValue >> ' + scalingValue);
-
-		var newWidth;
-		if(scalingPercent < 0){
-			/* Devo aggiungere alla dimensione iniziale */
-			newWidth = originalObjWidth + (scalingValue*-1);
-		} else {
-			/* Devo togliere alla dimensione iniziale */
-			newWidth = originalObjWidth - scalingValue;
+		for(var j=0; j< imagesMatrix.length; j++){
+			resizeElement(j, actualDivContainerWidth);
 		}
-		if(newWidth > minWidth){
-			$('#box-1').css('width', newWidth+'px');
-			$('#image-3').css('width', newWidth+'px');
-			$('#span-1').css('width', newWidth+'px');
-			console.log('New width >> ' + newWidth);
-		}
-
-		/*		
-		$('#image-3').css('width','100px');
-		$('#image-3').css('height','100px');
- 		*/	
 	};
+
+  $("#fittext_caption_title").fitText(0.9, { minFontSize: '16px', maxFontSize: '72px' });
+
+  function showInfoLista(){
+  	$('#infoLista').modal('show');
+  };
 
 {% endblock scripts %}

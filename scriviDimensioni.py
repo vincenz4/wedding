@@ -10,14 +10,12 @@ import sys
 import re, os
 from PIL import Image
 
-maxHeight = 150;
+maxHeight = 180;
 
-def scorriDirectory(output, directory, prefisso):
- 
+def scorriDirectory(output, directory, prefisso, conta):
     for filename in os.listdir(directory):
-        # print('filename >> %s %r' % (filename,os.path.isdir(filename)));
         if os.path.isdir(directory+'/'+filename):
-            scorriDirectory(output, directory+'/'+filename, prefisso+'/'+filename);
+            conta = scorriDirectory(output, directory+'/'+filename, prefisso+'/'+filename, conta);
         else:
             try:
                 img = Image.open(directory+'/'+filename)
@@ -27,19 +25,24 @@ def scorriDirectory(output, directory, prefisso):
 
                 # print('filename >> %s width >> %s height >> %s resizedWidth >> %s' % (filename, width, height, resizedWidth));
                 output.writelines('            array(\n');
-                output.writelines('                \'row\' =>  \'1\',\n');
+                output.writelines('                \'row\' =>  \'%s\',\n' %( int(conta / 3)+1 ));
                 output.writelines('                \'column\' =>  \'1\',\n');
                 output.writelines('                \'file\' =>  \'%s\',\n' %(prefisso+'/'+filename));
+                # output.writelines('                \'width\' =>  \'30\',\n');
                 output.writelines('                \'width\' =>  \'%s\',\n' %(resizedWidth));
                 output.writelines('                \'height\' =>  \'%s\',\n' %(maxHeight));
-                output.writelines('                \'alternate\' => \'alternate\',\n');
-                output.writelines('                \'title\' => \'Geisha\',\n');
-                output.writelines('                \'body\' => \'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.\',\n');
+                output.writelines('                \'alternate\' => \'\',\n');
+                # output.writelines('                \'title\' => \'%s\',\n' %( filename[:filename.rfind('.')].replace('-',' ').replace('_',' ').capitalize() ));
+                # output.writelines('                \'body\' => \'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.\',\n');
+                output.writelines('                \'title\' => \'Info Lista\',\n');
+                output.writelines('                \'body\' => \'Agenzia di viaggio Follie Viaggi.<br> IBAN: 6153723527<br> <a href=\\\'./posta.php\\\'>Lasciaci un pensiero</a>\',\n');
                 output.writelines('            ),\n');
+
+                conta = conta + 1;
             except IOError:
                 # filename not an image file
                 print('Il file non è un\'immagine >> %s' %(filename));
-    pass
+    return conta;
 
 def leggiFile(directory):
     output = file('/Users/francesco/lavoro/personal/siti/wedding/php/lista-nozze-riempita.php', 'w')
@@ -54,7 +57,7 @@ def leggiFile(directory):
     output.writelines('        \'imageBaseUrl\' => \'./static/img/viaggio/\',\n');
     output.writelines('        \'objList\' => array(\n');
 
-    scorriDirectory(output, directory, '.')
+    scorriDirectory(output, directory, '.', 0)
 
     output.writelines('        ),\n');
     output.writelines('    ));\n');

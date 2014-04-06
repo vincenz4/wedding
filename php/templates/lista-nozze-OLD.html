@@ -1,0 +1,44 @@
+{% extends "./sitebase.html" %}
+
+{% block content %}
+  
+	<div class="row marginTop20">
+		<blockquote class="pull-right">
+			<p class="font_10 well well-sm">"Chi ha viaggiato conosce molte cose, <br/>chi ha molta esperienza parlerà con intelligenza. <br/>Chi non ha avuto delle prove, poco conosce; <br/>chi ha viaggiato ha accresciuto l'accortezza."</p>
+			<small><cite style="color:black;">(Siracide, Antico Testamento)</cite></small>
+		</blockquote>
+	</div>
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">   
+			<p class="font_2 centra" id="fittext_caption_title">La lista di nozze</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title font_4">Alla scoperta di ... Giappone e Thailandia.</h3>
+				</div>
+				<div class="panel-body">
+					<p style="font-size:14px;">
+						Sempre con “largo anticipo” vi anticipiamo che finalmente abbiamo definito il nostro meraviglioso viaggio di nozze che sarà alla scoperta del Giappone e della Thailandia. Giustamente troppe informazioni tutte insieme potrebbero far male, quindi vi aggiorneremo prossimamente sulle info necessarie per la fantomatica lista nozze.
+					</p>
+					<!--p style="font-size:14px;">
+						Ancora non abbiamo fissato nulla, sempre in anticipo noi, ma sicuramente la nostra luna di miele sarà alla scoperta di un luogo in un continente che non è il nostro.
+						Quindi se proprio volete farci un regalo e se insistete cosi' tanto tra poco vi potremmo dare tutte le info necessarie.</p-->
+					<br>	
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
+{% block scripts %}
+  $("#fittext_caption_title").fitText(0.9, { minFontSize: '16px', maxFontSize: '72px' });
+
+	function initPage(){
+		return;
+	}
+
+{% endblock scripts %}

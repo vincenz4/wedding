@@ -1,5 +1,136 @@
 {% extends "./sitebase.html" %}
 
+{% block styles %}
+
+<style type="text/css">
+
+#mainwrapper {
+	font: 10pt normal Arial, sans-serif;
+	margin: 0px 15px 0 30px;
+	text-align: center;
+}
+
+/* Image Box Style */
+#mainwrapper .box {
+	border: 4px solid #fff;
+	cursor: pointer;
+	float: left;
+	margin: 7px;
+	position: relative;
+	overflow: hidden;
+	-webkit-box-shadow: 1px 1px 1px 1px #ccc;
+	-moz-box-shadow: 1px 1px 1px 1px #ccc;
+	box-shadow: 1px 1px 1px 1px #ccc;
+}
+
+#mainwrapper .box img {
+	position: absolute;
+	left: 0;
+	-webkit-transition: all 300ms ease-out;
+	-moz-transition: all 300ms ease-out;
+	-o-transition: all 300ms ease-out;
+	-ms-transition: all 300ms ease-out;	
+	transition: all 300ms ease-out;
+}
+
+/* Caption Common Style */
+#mainwrapper .box .caption {
+	background-color: rgba(0,0,0,0.8);
+	position: absolute;
+	color: #fff;
+	z-index: 100;
+	-webkit-transition: all 300ms ease-out;
+	-moz-transition: all 300ms ease-out;
+	-o-transition: all 300ms ease-out;
+	-ms-transition: all 300ms ease-out;	
+	transition: all 300ms ease-out;
+	left: 0;
+}
+
+/** Caption 3: Fade **/
+#mainwrapper .box .fade-caption  {
+	opacity: 0;
+	/*width: 300px;
+	height: 300px;*/
+	text-align: left;
+	padding: 5px;
+}
+
+/** Fade Caption :hover Behaviour **/
+#mainwrapper .box:hover .fade-caption  {
+	opacity: 1;
+}
+
+/** Scale Caption :hover Behaviour **/
+/*#mainwrapper .box:hover #image-3 {
+	-moz-transform: scale(1.4);
+	-o-transform: scale(1.4);
+	-webkit-transform: scale(1.4);
+	transform: scale(1.4);
+}
+*/
+#mainwrapper .box:hover .image {
+	-webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: 0.5s;
+}
+
+
+.font_titolo{
+  font-family: shelley, sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: middle;
+  line-height: 1.4em;
+  color: rgb(49, 74, 18);
+}
+.font_body{
+  font-family: Jura, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  font-variant: normal;
+  font-weight: normal;
+  vertical-align: bold;
+  line-height: 1.4em;
+  color: rgb(100, 112, 127);
+}
+
+ 	</style>
+{% endblock styles %}
+
+{% block beforeContent %}
+	<div class="modal fade" id="infoLista" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header" style="background-color:#f5f5f5;">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title font_titolo" id="myModalLabel">Info lista</h4>
+	      </div>
+ 	      <div class="modal-body font_body">Puoi partecipare alla nostra lista viaggi ... 
+ 	      	<ul>
+				<li>Direttamente presso Follie Viaggi a Prato in Via Carlo Marx 32&frasl;34, Tel. 0574&frasl;605948 - 605966</li>
+				<br/>
+				<li>Effettuando un bonifico bancario a: <br/> 
+					Vincenza Orlando e Francesco Castellani <br/>
+					IBAN: IT12P0340201601000000039606 <br/>
+					Banca: Webank <br/>
+					Causale: Regalo matrimonio <br/>
+				</li>
+				<br/>
+				<li>Mediante paypal collegandoti <a href="http://www.follieviaggi.it/liste-di-nozze.php" target="_blank">qui</a> <br/><u>CODICE DI ACCESSO:</u> 140514z</li>
+			</ul>
+			E cosa più importante lasciaci un pensiero <a href="./posta.php">qui</a>.
+	      </div>
+		</div>
+	  </div>
+	</div>
+{% endblock beforeContent %}
+
 {% block content %}
   
 	<div class="row marginTop20">
@@ -13,6 +144,7 @@
 			<p class="font_2 centra" id="fittext_caption_title">La lista di nozze</p>
 		</div>
 	</div>
+
 	<div class="row">
 		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
 			<div class="panel panel-default">
@@ -21,24 +153,268 @@
 				</div>
 				<div class="panel-body">
 					<p style="font-size:14px;">
-						Sempre con “largo anticipo” vi anticipiamo che finalmente abbiamo definito il nostro meraviglioso viaggio di nozze che sarà alla scoperta del Giappone e della Thailandia. Giustamente troppe informazioni tutte insieme potrebbero far male, quindi vi aggiorneremo prossimamente sulle info necessarie per la fantomatica lista nozze.
+						Terra ricca di storia cultura e natura, tra antico e moderno, la nostra luna di miele sarà principalmente alla scoperta del Giappone. Paese pieno di tradizioni ed espressioni artistiche abbiamo pensato al nostro viaggio di nozze come l’occasione per scoprire tutti i volti di una terra perfettamente sconosciuta, un itinerario per addentrarsi nella tradizione e nella modernità della cultura giapponese. Da Tokyo ad Osaka per conoscere il lato più moderno, tecnologico e dinamico del Giappone e quello più antico e affascinate. Un tour che attraversa le prefetture di Gifu ed Ishikawa alla scoperta di alcune tra le località più storiche del Giappone, quelle degli antichi villaggi di Takayama, Shirakawa go e Kanazawa senza tralasciare Kyoto, antica capitale imperiale disseminata di santuari, palazzi, pagode, templi e opere d’arte; Hiroshima e l’incantevole isola di Miyajima e dulcis in fundo Osaka dove ci attenderà un volo che ci porterà su un’isola paradisiaca nella terra delle palme e delle noci di cocco… Kho Samui in Thailandia! Trascorreremo qui gli ultimi giorni di un viaggio meraviglioso, in totale relax, lasciandoci cullare da paesaggi mozzafiato, acque verdi smeraldo e piacevoli massaggi thailandesi.</p>
+					<br>
+					<p style="font-size:14px;">
+						<a class="font_5" onClick='javascript:showInfoLista();'>Info lista</a>
 					</p>
-					<!--p style="font-size:14px;">
-						Ancora non abbiamo fissato nulla, sempre in anticipo noi, ma sicuramente la nostra luna di miele sarà alla scoperta di un luogo in un continente che non è il nostro.
-						Quindi se proprio volete farci un regalo e se insistete cosi' tanto tra poco vi potremmo dare tutte le info necessarie.</p-->
-					<br>	
 				</div>
 			</div>
 		</div>
 	</div>
 
+<script type="text/javascript">
+	var images = [];
+	var rowWidth = [];
+	var imagesMatrix = [];
+	function Image(){
+		this.id;
+		this.row;
+		this.column;
+        this.file;
+        this.width;
+        this.height;
+        this.alternate;
+        this.title;
+        this.body;
+        this.initialize = function(id, row, column, file, width, height, alternate, title, body) {
+			this.id = id;
+			this.row = row;
+			this.column = column;
+	        this.file = file;
+	        this.width = width;
+	        this.height = height;
+	        this.alternate = alternate;
+	        this.title = title;
+	        this.body = body;
+    	};
+	}
+	var currentRow = 1;
+	var idStart = 0;
+	var counter = 0;
+	{% for obj in objList %}
+		var image = new Image();
+		image.initialize({{loop.counter}}, {{obj.row}}, {{obj.column}}, '{{imageBaseUrl}}{{obj.file}}', {{obj.width}}, {{obj.height}}, '{{obj.alternate}}', '{{obj.title}}', '{{obj.body}}');
+		images.push(image);
+		if(currentRow != image.row){
+			currentRow = image.row;
+			imagesMatrix.push(images.slice(idStart, counter)); //Counter è escluso slice lavora cosi' [)
+			idStart = counter;
+		}
+		counter = counter + 1;
+	{% endfor %}
+	if(idStart < counter){
+		imagesMatrix.push(images.slice(idStart, images.length)); //Counter è escluso slice lavora cosi' [)
+	}
+	images = null;
+</script>
+
+	
+	<div class="row">		
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">  
+			<div class="row" id="thumbrow">	  	
+			{% for obj in objList %}
+				{% rowchange obj objList %}
+				{% if !stessaRiga %}
+					</div>
+	    			<div class="row">
+	    		{% endif %}
+				<div id="mainwrapper">
+					<div id="box-{{loop.counter}}" class="box" style="height: {{obj.height}}px;">
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+
+		</div>
+	</div>
+
 {% endblock content %}
 
+{% block addonscripts %}
+    {% if DEBUG_ENABLE %}
+        <script src="./static/js/blueimp-gallery.js"></script>
+    {% else %}
+        <script src="./static/js/blueimp-gallery.min.js"></script>
+    {% endif %}
+    <script src="./static/js/blueimp-helper.js"></script>
+{% endblock addonscripts %}
+
 {% block scripts %}
-  $("#fittext_caption_title").fitText(0.9, { minFontSize: '16px', maxFontSize: '72px' });
+	//Variabili statiche
+	var elementiPerRiga = 3;
+	var riduzioneDimensioneContenitore = 120;
+	var riduzioneDimensioneBox = 25;
+
+	var originalDivContainerWidth;
+
+	var minWidth = 150;
+	var maxWidth = 150;
+
+	var idMaxRowWidth = 0;
 
 	function initPage(){
-		return;
+		originalDivContainerWidth = $("#thumbrow").innerWidth() - riduzioneDimensioneContenitore;
+
+		for(var j=0; j< imagesMatrix.length; j++){
+			//Inizializzo il vettore delle dimensioni tenendo conto del bordo e del margine
+			rowWidth[j] = 0;
+
+			for(var i=0; i< imagesMatrix[j].length; i++){
+				//Devo tenere conto del bordo e del margine
+				rowWidth[j] += imagesMatrix[j][i].width + riduzioneDimensioneBox;
+
+				$('#box-'+imagesMatrix[j][i].id).css('width', imagesMatrix[j][i].width+'px');
+				var element = " ";
+
+				element = element + "<a onClick='javascript:showInfoLista();'>";
+				element = element + "<img class='image' id='image-"+imagesMatrix[j][i].id+"' src='"+imagesMatrix[j][i].file+"' style='width: "+imagesMatrix[j][i].width+"px;height: "+imagesMatrix[j][i].height+"px;' alt='"+imagesMatrix[j][i].alternate+"'/>";
+
+				element = element + "<span class='caption fade-caption' id='span-"+imagesMatrix[j][i].id+"' style='width: "+imagesMatrix[j][i].width+"px;height: "+imagesMatrix[j][i].height+"px; background-color: white; background-image: url(./static/img/gift_box.png); background-size:80px 80px; background-position: right bottom; background-repeat: no-repeat;'>";
+
+				element = element + "<p class='font_titolo'>"+imagesMatrix[j][i].title+"</p>";
+//				element = element + "<p class='font_body'><marquee direction='up' scrolldelay='200'>"+imagesMatrix[j][i].body+"</marquee></p>";
+//				element = element + "<p class='font_body'>"+imagesMatrix[j][i].body+"</p>";
+				element = element + "<p class='font_body'><ul class='font_body'><li>Presso Follie Viaggi</li><li>Paypal</li><li> Bonifico Bancario</li></ul></p>";
+				element = element + "</span>";
+				element = element + "</a>";
+
+
+				$('#box-'+imagesMatrix[j][i].id).append(element);
+			}
+			//Imposto l'indice della riga più lunga
+			if(rowWidth[j] > rowWidth[idMaxRowWidth]){
+				idMaxRowWidth = j;
+			}
+		}
+
+		//Adatto per arrivare al 100%
+		var newMaxRowWidth = adatta(idMaxRowWidth);
+		for(var j=0; j< imagesMatrix.length; j++){
+//			console.log(' j >> ' + j );
+
+			if(j != idMaxRowWidth){
+				var valoreIncremento = Math.round( ((originalDivContainerWidth-rowWidth[j]) / originalDivContainerWidth) * 100);
+
+				var newRowWidth = 0;
+				var elementiPresentiPerRiga = 0;
+				for(var i=0; i< imagesMatrix[j].length; i++){
+					var incremento = Math.round(imagesMatrix[j][i].width*valoreIncremento/100);
+					var width = imagesMatrix[j][i].width + incremento;
+
+					if(width < minWidth){
+						width = minWidth;
+					}
+
+					newRowWidth += width;
+					elementiPresentiPerRiga += 1;
+				}
+				if(elementiPresentiPerRiga >= elementiPerRiga){
+					var widthAdjusting = Math.round((newMaxRowWidth - newRowWidth)/elementiPresentiPerRiga);
+//					console.log(' widthAdjusting >> ' + widthAdjusting );
+					for(var i=0; i< imagesMatrix[j].length; i++){
+						var incremento = Math.round(imagesMatrix[j][i].width*valoreIncremento/100);
+						var width = imagesMatrix[j][i].width + incremento + widthAdjusting;
+
+//						console.log(' incremento >> ' + incremento );
+//						console.log(' imagesMatrix[j][i].width >> ' + imagesMatrix[j][i].width );
+
+						if(width < minWidth){
+							width = minWidth;
+						}
+//						console.log(' new width real >> ' + width );
+
+						imagesMatrix[j][i].width = width;
+
+						$('#box-'+imagesMatrix[j][i].id).css('width', width+'px');
+						$('#image-'+imagesMatrix[j][i].id).css('width', width+'px');
+						$('#span-'+imagesMatrix[j][i].id).css('width', width+'px');
+					}
+				}
+			}
+		}
+
+ 		return;
 	}
+
+	function adatta(indice){
+//		console.log(' originalDivContainerWidth >> ' + originalDivContainerWidth );
+//		console.log(' rowWidth[indice] >> ' + rowWidth[indice] );
+
+		var valoreIncremento = Math.round( ((originalDivContainerWidth-rowWidth[indice]) / originalDivContainerWidth) * 100);
+//		console.log(' valoreIncremento >> ' + valoreIncremento );
+		var newRowWidth = 0;
+		for(var i=0; i< imagesMatrix[indice].length; i++){
+			var incremento = Math.round(imagesMatrix[indice][i].width*valoreIncremento/100);
+//			console.log(' incremento >> ' + incremento );
+
+			var width = imagesMatrix[indice][i].width + incremento;
+//			console.log(' new width >> ' + width );
+
+			if(width < minWidth){
+				ratio = imagesMatrix[indice][i].width / imagesMatrix[indice][i].height;
+				width = minWidth;
+			}
+//			console.log(' new width real >> ' + width );
+
+			imagesMatrix[indice][i].width = width;
+			$('#box-'+imagesMatrix[indice][i].id).css('width', width+'px');
+			$('#image-'+imagesMatrix[indice][i].id).css('width', width+'px');
+			$('#span-'+imagesMatrix[indice][i].id).css('width', width+'px');
+
+			newRowWidth += imagesMatrix[indice][i].width;
+
+		}
+		return newRowWidth;
+	}
+
+	function resizeElement(indice, actualDivContainerWidth){
+		for(var i=0; i< imagesMatrix[indice].length; i++){
+			var actualObjWidth = $('#image-'+imagesMatrix[indice][i].id).width();	
+//			console.log(' Actual Image Width >> ' + actualObjWidth );
+
+			var originalObjWidth = imagesMatrix[indice][i].width;
+//			console.log(' Orginal Image Width >> ' + originalObjWidth );
+
+			/* Percentuale da scalare */
+			var scalingPercent = ((originalDivContainerWidth - actualDivContainerWidth)/originalDivContainerWidth)*100;
+//			console.log('scalingPercent >> ' + scalingPercent);
+
+			var scalingValue = Math.round( ( (originalObjWidth * scalingPercent)/100 ) );
+//			console.log('scalingValue >> ' + scalingValue);
+
+			var newWidth;
+			if(scalingPercent < 0){
+				/* Devo aggiungere alla dimensione iniziale */
+				newWidth = originalObjWidth + (scalingValue*-1);
+			} else {
+				/* Devo togliere alla dimensione iniziale */
+				newWidth = originalObjWidth - scalingValue;
+			}
+			if(newWidth > minWidth){
+				$('#box-'+imagesMatrix[indice][i].id).css('width', newWidth+'px');
+				$('#image-'+imagesMatrix[indice][i].id).css('width', newWidth+'px');
+				$('#span-'+imagesMatrix[indice][i].id).css('width', newWidth+'px');
+//				console.log('New width >> ' + newWidth);
+			}
+		}
+	}
+
+	window.onresize=function(){
+//		console.log('original Div Container Width >> ' + originalDivContainerWidth);
+
+		var actualDivContainerWidth = $("#thumbrow").width() - riduzioneDimensioneContenitore;;		
+//		console.log('actual Div Container Width >> ' + actualDivContainerWidth);
+
+		for(var j=0; j< imagesMatrix.length; j++){
+			resizeElement(j, actualDivContainerWidth);
+		}
+	};
+
+  $("#fittext_caption_title").fitText(0.9, { minFontSize: '16px', maxFontSize: '72px' });
+
+  function showInfoLista(){
+  	$('#infoLista').modal('show');
+  };
 
 {% endblock scripts %}

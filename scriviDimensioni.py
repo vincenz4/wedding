@@ -35,7 +35,7 @@ def scorriDirectory(output, directory, prefisso, conta):
                 # output.writelines('                \'title\' => \'%s\',\n' %( filename[:filename.rfind('.')].replace('-',' ').replace('_',' ').capitalize() ));
                 # output.writelines('                \'body\' => \'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.\',\n');
                 output.writelines('                \'title\' => \'Info Lista\',\n');
-                output.writelines('                \'body\' => \'Agenzia di viaggio Follie Viaggi.<br> IBAN: 6153723527<br> <a href=\\\'./posta.php\\\'>Lasciaci un pensiero</a>\',\n');
+                output.writelines('                \'body\' => \'\',\n');
                 output.writelines('            ),\n');
 
                 conta = conta + 1;

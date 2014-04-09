@@ -183,6 +183,17 @@ body {
   text-decoration: underline;
 }
 
+.green {
+  color: rgb(8, 132, 46);
+  text-decoration: none;
+}
+
+.green a:hover, a:focus {
+  color: rgb(3, 112, 3);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .bold{
   font-weight: bold;
 }
@@ -218,6 +229,7 @@ body {
   line-height: 1.4em;
   color: #000;
 }
+
 .font_7{
   font-family: jura, sans-serif;
   font-size: 16px;
@@ -272,7 +284,26 @@ body {
   line-height: 1.4em;
   color: #000;
  }
- 
+
+.font_menu_titolo{
+  font-family: 'Clicker Script', cursive;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  line-height: 1.4em;
+  color: #000;
+}
+ .font_menu_corpo{
+  font-family: 'Clicker Script', cursive;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  line-height: 1.4em;
+  color: #000;
+ }
+
 @media screen and (min-width: 768px) {
 
   .bs-header {

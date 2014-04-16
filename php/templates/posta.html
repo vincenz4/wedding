@@ -6,12 +6,14 @@
 			<p class="font_10 well well-sm">"Questa è l'essenza della scienza: <br/>fate una domanda impertinente e preparatevi a ricevere una risposta pertinente"</p>
 			<small><cite style="color:black;">(J. Bronowski)</cite></small>
 		</blockquote>
+	</div>
+	<div class="row">
 		<div class="col-sm-5 col-md-5 col-lg-5 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 hidden-xs ">
-			<img alt="..." src="./static/img/posta.jpg" class="img-responsive img-rounded center-block" style="margin-top: 180px;">
+			<img alt="..." src="./static/img/posta.jpg" class="img-responsive img-rounded center-block" style="margin-top: 50px;">
 		</div>
 		<div class="col-sm-5 col-md-5 col-lg-5">
 			<div class="font_7">
-				<p class="font_2 centra" id="fittext_caption_title">Contattaci</p>	
+				<p class="font_2 centra" id="fittext_caption_title_2">Contattaci</p>	
 				<!--p class="font_4">Per info, dubbi e/o curiosità</p-->				
 				<form action="" id="contact-form" method="POST">
 					<div class="form-group">
@@ -50,7 +52,8 @@
 {% endblock addonscripts %}
 
 {% block scripts %}
-	$("#fittext_caption_title").fitText(0.9, { minFontSize: '18px', maxFontSize: '72px' });
+	$("#fittext_caption_title_1").fitText(0.9, { minFontSize: '18px', maxFontSize: '72px' });
+	$("#fittext_caption_title_2").fitText(0.9, { minFontSize: '18px', maxFontSize: '72px' });
 	
 	function initPage(){
 		$('#contact-form').validate({

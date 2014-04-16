@@ -1,0 +1,216 @@
+{% extends "./sitebase.html" %}
+
+{% block content %}
+	<div class="row marginTop20">
+		<blockquote class="pull-right">
+			<p class="font_10 well well-sm">"Questa è l'essenza della scienza: <br/>fate una domanda impertinente e preparatevi a ricevere una risposta pertinente"</p>
+			<small><cite style="color:black;">(J. Bronowski)</cite></small>
+		</blockquote>
+	</div>
+	<!-- Prima riga -->
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
+			<div class="font_7">	
+				<p class="font_2 centra" id="fittext_caption_title_1">Libro Dediche</p>
+			</div>
+		</div>
+	</div>
+	<!-- Seconda riga -->
+	<div class="row">
+		<div class="col-sm-5 col-md-5 col-lg-5 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 hidden-xs ">
+			<img alt="..." src="./static/img/guestbook.jpg" class="img-responsive img-rounded center-block">
+		</div>
+		<div class="col-sm-5 col-md-5 col-lg-5">
+			<div class="font_7">	
+				<form action="" id="dedica-form" method="POST">
+					<div class="form-group">
+						<label class="control-label" for="iNome">Nome e Cognome *</label>					 
+						<input id="iDedicaNome" type="text" class="form-control" name="dedicaNome" required="required" placeholder="Nome ..."><span class="hide help-inline">Obbligatorio</span>
+					</div>		
+					<div class="form-group">
+						<label class="control-label" for="iNome">Messaggio*</label>				
+						<textarea id="iDedicaMessaggio" rows="4" class="form-control" name="dedicaMessaggio" required="required" placeholder="Messaggio ..."></textarea><span class="hide help-inline">Obbligatorio</span>
+					</div>		
+					<div class="form-group">
+						<button id="btnDedicaInvio" class="btn btn-default pull-right" type="submit">Invia</button>
+					</div>
+					<div id="formDedicaResponse"></div>
+					<p class="spazio"></p>
+				</form>
+			</div>
+		</div>			
+	</div>			
+	<div class="row">
+		<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">    	
+			<br/>
+			<div id="messageContainer">
+			</div>
+		</div>
+	</div>
+{% endblock content %}
+
+{% block addonscripts %}
+	{% if DEBUG_ENABLE %}
+	    <script src="./static/js/jquery-ui-1.10.4.custom.js"></script>
+	{% else %}
+	    <script src="./static/js/jquery-ui-1.10.4.custom.min.js"></script>
+	{% endif %}
+	<script src="./static/js/jquery.validate.min.js"></script>
+{% endblock addonscripts %}
+
+{% block scripts %}
+	$("#fittext_caption_title_1").fitText(0.9, { minFontSize: '18px', maxFontSize: '72px' });
+	$("#fittext_caption_title_2").fitText(0.9, { minFontSize: '18px', maxFontSize: '72px' });
+	
+	var started = 0;
+	var from;
+	var occorrenze = 10;
+
+	var ended = 0;
+
+	function initPage(){
+		getDediche();
+
+		$('#dedica-form').validate({
+			rules: {
+				dedicaNome: {
+				  minlength: 5,
+				  required: true
+				},
+				dedicaMessaggio: {
+				  minlength: 10,
+				  required: true
+				},
+			},
+			highlight: function(label) {
+				$(label).closest('.form-group').addClass('has-error');
+			},
+			unhighlight: function(label) {
+				$(label).closest('.form-group').removeClass('has-error');
+			},
+			success: function(label) {
+                $(label).closest('.form-group').removeClass('has-error').addClass('has-success');
+            },	
+			messages:{
+				dedicaNome: {
+					required: "Inserisci il nome",
+					minlength: "Il nome deve essere minimo 5 caratteri"
+				},
+				dedicaMessaggio: {
+					required: "Il messaggio è obbligatorio.",
+					minlength: "Il messaggio deve essere minimo 10 caratteri"
+				},
+			},
+			errorElement: 'span',
+			errorClass: 'help-block',
+			errorPlacement: function(error, element) {
+				if(element.parent('.input-group').length) {
+					error.insertAfter(element.parent());
+				} else {
+					error.insertAfter(element);
+				}
+			},
+			submitHandler: function (form) {
+	            // form validates so do the ajax
+	            
+			    $.getJSON('proxy.php?operazione=0&'+$('#dedica-form').serialize(), function(data){
+		        	var testo;
+		        	
+		        	//console.log(data);
+
+		        	<!-- console.log("Stato del messaggio: " + data.status); -->
+					//Nascondo il bottone invio
+					$('#btnDedicaInvio').hide();
+
+		        	if(data.status == '0'){
+		          		testo = "<div id=\"idAlert\" class=\"alert alert-success\">";
+		          		<!-- $('#btnInvio').prop('disabled', true); -->
+		        	} else {
+		          		testo = "<div id=\"idAlert\" class=\"alert alert-error\">";
+		        	}
+		        	testo += data.messaggio+"<\div>";
+		        	$('#formDedicaResponse').append(testo);
+
+		        	//Faccio scomparire il messaggio di allert
+	          		$('#idAlert').hide(4000, 'easeInQuint', function() {
+						$('#idAlert').remove();
+						$('#btnDedicaInvio').show();
+						$('#iDedicaNome').val('');
+						$('#iDedicaMessaggio').val('');
+					});
+					aggiornaDediche();
+			    });
+
+            	return false; // ajax used, block the normal submit
+	        },	
+		});
+	}
+
+	function aggiornaDediche() {
+		started = 0;
+		ended = 0;
+		$('#messageContainer').empty();
+
+		getDediche();
+	}
+
+	function getDediche() {
+		if( !ended ){
+			var chiamata = 'proxy.php?operazione=1&occorrenze='+occorrenze;
+			if(started){
+				chiamata += '&da='+from;
+			}
+			//console.log(chiamata);	
+			$.getJSON(chiamata, function(data){
+				var testo;
+
+			    started = 1;
+				//console.log(data.conteggio);
+				//console.log(data.pagine);
+				//console.log(data.paginaCorrente);
+				//console.log(data.dediche);
+
+				var testo = "";
+				var conta = 0;
+				for(obj in data.dediche){
+					var dData = new Date(data.dediche[obj].data.time);
+					//console.log(data.dediche[obj]._id);
+					//console.log(dData);
+					//console.log(data.dediche[obj].document);
+					//console.log(data.dediche[obj].nome);
+					testo += "<div class=\"well font_7\">";	
+					testo += "	<p class=\"pull-right\"><small>"+dData.toLocaleString()+"</small></p>";
+					testo += "	<br/>";
+					testo += "	<p class=\"font_7\">"+data.dediche[obj].document+"</p>";
+					testo += "	<br/>";
+					testo += "	<p class=\"font_6\">"+data.dediche[obj].nome+"</p>";
+					testo += "</div>";
+					testo += "<br/>";
+					testo += "<br/>";
+					from = data.dediche[obj]._id;
+					conta ++;
+				}
+				if(conta < occorrenze){
+					ended = 1;
+				}
+
+				$('#messageContainer').append(testo);
+			});
+		}
+	}
+
+	function getDocHeight() {
+	    var D = document;
+	    return Math.max(
+	        Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
+	        Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
+	        Math.max(D.body.clientHeight, D.documentElement.clientHeight)
+	    );
+	}
+
+	$(window).scroll(function() {
+   		if($(window).scrollTop() + $(window).height() == getDocHeight()) {
+       		getDediche();
+   		}
+	});
+{% endblock scripts %}

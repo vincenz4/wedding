@@ -1,6 +1,6 @@
 <li class="{% cssactuallink home %}"><a href="{% hreflink home, home.php %}">Un po' di noi</a></li>
 <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Organizziamoci <span class="caret"></span></a>                
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Organizziamoci<span class="caret"></span></a>                
     <ul class="dropdown-menu" role="menu">
         <li class="{% cssactuallink organizziamoci_arrivare_briatico %}">
             <a href="{% hreflink organizziamoci_arrivare_briatico, organizziamoci_arrivare_briatico.php%}">Come arrivare</a>
@@ -30,6 +30,18 @@
 <li class="{% cssactuallink lista-nozze %}">
     <a href="{% hreflink lista-nozze, lista-nozze.php %}">Lista Nozze</a>
 </li>
-<li class="{% cssactuallink posta %}">
-    <a href="{% hreflink posta, posta.php %}">Angolo della posta</a>
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Angolo della Posta<span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+        <li class="{% cssactuallink posta %}">
+            <a href="{% hreflink posta, posta.php %}">Contattaci</a>
+        </li>
+        <li class="{% cssactuallink libro-dediche %}">
+            <a href="{% hreflink libro-dediche, libro-dediche.php %}">Libro dediche</a>
+        </li>
+    </ul>
 </li>
+
+<!--li class="{% cssactuallink posta %}">
+    <a href="{% hreflink posta, posta.php %}">Angolo della posta</a>
+</li-->

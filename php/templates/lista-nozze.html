@@ -125,7 +125,7 @@
 				<br/>
 				<li>Mediante paypal collegandoti <a href="http://www.follieviaggi.it/liste-di-nozze.php" target="_blank">qui</a> <br/><u>CODICE DI ACCESSO:</u> 140514z</li>
 			</ul>
-			<font style="font-size:18px;color: rgb(8, 132, 46);">E cosa più importante lasciaci un pensiero <a class="green" href="./posta.php">qui</a></font>.
+			<font style="font-size:18px;color: rgb(8, 132, 46);">E cosa più importante lasciaci un pensiero <a class="green" href="./libro-dediche.php">qui</a></font>.
 	      </div>
 		</div>
 	  </div>
@@ -244,7 +244,7 @@
 {% block scripts %}
 	//Variabili statiche
 	var elementiPerRiga = 3;
-	var riduzioneDimensioneContenitore = 140;
+	var riduzioneDimensioneContenitore = 0;
 	var riduzioneDimensioneBox = 25;
 
 	var originalDivContainerWidth;
@@ -254,8 +254,88 @@
 
 	var idMaxRowWidth = 0;
 
+	var total_images;
+	var images_loaded = 0;
+
+
+	function getDivWidth() {
+	    var D = $("#mainwrapper");
+//        console.log(D.innerWidth());
+//        console.log(D.outerWidth());
+//        console.log(D[0].offsetWidth);
+//        console.log(D[0].clientWidth);
+	    return D.innerWidth();
+	}
+
+	$(document).ready(function(){
+	  $(window).load(function(){
+		total_images = $(".image").length;
+		$(".image").each(function(index, element) {
+			$("#"+$(this).attr('id')).ready(function() {
+				images_loaded += 1;
+				if(images_loaded==total_images){
+			  		setTimeout("inizializzaDimensioni()", 2000);
+			  	}
+			});
+		});
+	    //setTimeout("getDivWidth()", 2000);
+	  });
+	});
+
+	function inizializzaDimensioni() {
+		originalDivContainerWidth = getDivWidth() - riduzioneDimensioneContenitore;
+
+		//Adatto per arrivare al 100%
+		var newMaxRowWidth = adatta(idMaxRowWidth);
+
+		//console.log(' newMaxRowWidth >> ' + newMaxRowWidth );
+
+		for(var j=0; j< imagesMatrix.length; j++){
+			//console.log(' j >> ' + j );
+
+			if(j != idMaxRowWidth){
+				var valoreIncremento = Math.round( ((originalDivContainerWidth-rowWidth[j]) / originalDivContainerWidth) * 100);
+
+				var newRowWidth = 0;
+				var elementiPresentiPerRiga = 0;
+				for(var i=0; i< imagesMatrix[j].length; i++){
+					var incremento = Math.round(imagesMatrix[j][i].width*valoreIncremento/100);
+					var width = imagesMatrix[j][i].width + incremento;
+
+					if(width < minWidth){
+						width = minWidth;
+					}
+
+					newRowWidth += width;
+					elementiPresentiPerRiga += 1;
+				}
+				if(elementiPresentiPerRiga >= elementiPerRiga){
+					var widthAdjusting = Math.round((newMaxRowWidth - newRowWidth)/elementiPresentiPerRiga);
+					//console.log(' widthAdjusting >> ' + widthAdjusting );
+					for(var i=0; i< imagesMatrix[j].length; i++){
+						var incremento = Math.round(imagesMatrix[j][i].width*valoreIncremento/100);
+						var width = imagesMatrix[j][i].width + incremento + widthAdjusting;
+
+						//console.log(' incremento >> ' + incremento );
+						//console.log(' imagesMatrix[j][i].width >> ' + imagesMatrix[j][i].width );
+
+						if(width < minWidth){
+							width = minWidth;
+						}
+						//console.log(' new width real >> ' + width );
+
+						imagesMatrix[j][i].width = width;
+
+						$('#box-'+imagesMatrix[j][i].id).css('width', width+'px');
+						$('#image-'+imagesMatrix[j][i].id).css('width', width+'px');
+						$('#span-'+imagesMatrix[j][i].id).css('width', width+'px');
+					}
+				}
+			}
+		}
+	}
+
 	function initPage(){
-		originalDivContainerWidth = $("#thumbrow").innerWidth() - riduzioneDimensioneContenitore;
 
 		for(var j=0; j< imagesMatrix.length; j++){
 			//Inizializzo il vettore delle dimensioni tenendo conto del bordo e del margine
@@ -268,7 +348,7 @@
 				$('#box-'+imagesMatrix[j][i].id).css('width', imagesMatrix[j][i].width+'px');
 				var element = " ";
 
-				element = element + "<a onClick='javascript:showInfoLista();'>";
+				element = element + "<a onClick='javascript:showInfoLista();' id='ida'>";
 				element = element + "<img class='image' id='image-"+imagesMatrix[j][i].id+"' src='"+imagesMatrix[j][i].file+"' style='width: "+imagesMatrix[j][i].width+"px;height: "+imagesMatrix[j][i].height+"px;' alt='"+imagesMatrix[j][i].alternate+"'/>";
 
 				element = element + "<span class='caption fade-caption' id='span-"+imagesMatrix[j][i].id+"' style='width: "+imagesMatrix[j][i].width+"px;height: "+imagesMatrix[j][i].height+"px; background-color: white; background-image: url(./static/img/gift_box.png); background-size:80px 80px; background-position: right bottom; background-repeat: no-repeat;'>";
@@ -289,74 +369,28 @@
 			}
 		}
 
-		//Adatto per arrivare al 100%
-		var newMaxRowWidth = adatta(idMaxRowWidth);
-		for(var j=0; j< imagesMatrix.length; j++){
-//			console.log(' j >> ' + j );
-
-			if(j != idMaxRowWidth){
-				var valoreIncremento = Math.round( ((originalDivContainerWidth-rowWidth[j]) / originalDivContainerWidth) * 100);
-
-				var newRowWidth = 0;
-				var elementiPresentiPerRiga = 0;
-				for(var i=0; i< imagesMatrix[j].length; i++){
-					var incremento = Math.round(imagesMatrix[j][i].width*valoreIncremento/100);
-					var width = imagesMatrix[j][i].width + incremento;
-
-					if(width < minWidth){
-						width = minWidth;
-					}
-
-					newRowWidth += width;
-					elementiPresentiPerRiga += 1;
-				}
-				if(elementiPresentiPerRiga >= elementiPerRiga){
-					var widthAdjusting = Math.round((newMaxRowWidth - newRowWidth)/elementiPresentiPerRiga);
-//					console.log(' widthAdjusting >> ' + widthAdjusting );
-					for(var i=0; i< imagesMatrix[j].length; i++){
-						var incremento = Math.round(imagesMatrix[j][i].width*valoreIncremento/100);
-						var width = imagesMatrix[j][i].width + incremento + widthAdjusting;
-
-//						console.log(' incremento >> ' + incremento );
-//						console.log(' imagesMatrix[j][i].width >> ' + imagesMatrix[j][i].width );
-
-						if(width < minWidth){
-							width = minWidth;
-						}
-//						console.log(' new width real >> ' + width );
-
-						imagesMatrix[j][i].width = width;
-
-						$('#box-'+imagesMatrix[j][i].id).css('width', width+'px');
-						$('#image-'+imagesMatrix[j][i].id).css('width', width+'px');
-						$('#span-'+imagesMatrix[j][i].id).css('width', width+'px');
-					}
-				}
-			}
-		}
-
  		return;
 	}
 
 	function adatta(indice){
-//		console.log(' originalDivContainerWidth >> ' + originalDivContainerWidth );
-//		console.log(' rowWidth[indice] >> ' + rowWidth[indice] );
+		//console.log(' originalDivContainerWidth >> ' + originalDivContainerWidth );
+		//console.log(' rowWidth[indice] >> ' + rowWidth[indice] );
 
 		var valoreIncremento = Math.round( ((originalDivContainerWidth-rowWidth[indice]) / originalDivContainerWidth) * 100);
-//		console.log(' valoreIncremento >> ' + valoreIncremento );
+		//console.log(' valoreIncremento >> ' + valoreIncremento );
 		var newRowWidth = 0;
-		for(var i=0; i< imagesMatrix[indice].length; i++){
+		for(var i=0; i < imagesMatrix[indice].length; i++){
 			var incremento = Math.round(imagesMatrix[indice][i].width*valoreIncremento/100);
-//			console.log(' incremento >> ' + incremento );
+			//console.log(' incremento >> ' + incremento );
 
 			var width = imagesMatrix[indice][i].width + incremento;
-//			console.log(' new width >> ' + width );
+			//console.log(' new width >> ' + width );
 
 			if(width < minWidth){
 				ratio = imagesMatrix[indice][i].width / imagesMatrix[indice][i].height;
 				width = minWidth;
 			}
-//			console.log(' new width real >> ' + width );
+			//console.log(' new width real >> ' + width );
 
 			imagesMatrix[indice][i].width = width;
 			$('#box-'+imagesMatrix[indice][i].id).css('width', width+'px');
@@ -366,6 +400,7 @@
 			newRowWidth += imagesMatrix[indice][i].width;
 
 		}
+		//console.log(' newRowWidth >> ' + newRowWidth );
 		return newRowWidth;
 	}
 
@@ -404,7 +439,7 @@
 	window.onresize=function(){
 //		console.log('original Div Container Width >> ' + originalDivContainerWidth);
 
-		var actualDivContainerWidth = $("#thumbrow").width() - riduzioneDimensioneContenitore;;		
+		var actualDivContainerWidth = getDivWidth() - riduzioneDimensioneContenitore;
 //		console.log('actual Div Container Width >> ' + actualDivContainerWidth);
 
 		for(var j=0; j< imagesMatrix.length; j++){

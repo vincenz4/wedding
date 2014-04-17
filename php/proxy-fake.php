@@ -9,19 +9,19 @@
 
 	$data = "1=1";
 
-	if(isset($_GET['operazione'])) {
-		$data = $data . "&operazione=" . urlencode($_GET['operazione']);
+	if(isset($_POST['operazione'])) {
+		$data = $data . "&operazione=" . urlencode($_POST['operazione']);
 	} else {
 		die("$errstr ($errno)\n");
 	}
 
-	if($_GET['operazione'] == 1) {
+	if($_POST['operazione'] == 1) {
 
-		if(isset($_GET['da'])) {
-			$data = $data . "&da=" . urlencode($_GET['da']);
+		if(isset($_POST['da'])) {
+			$data = $data . "&da=" . urlencode($_POST['da']);
 		}
-		if(isset($_GET['occorrenze'])) {
-			$data = $data . "&occorrenze=" . urlencode($_GET['occorrenze']);
+		if(isset($_POST['occorrenze'])) {
+			$data = $data . "&occorrenze=" . urlencode($_POST['occorrenze']);
 		}
 		
 		echo "{\"conteggio\":20,\"pagine\":4,\"paginaCorrente\":1,\"dediche\":{\"-20\":{\"_id\":-20,\"data\":{\"date\":15,\"day\":2,\"hours\":15,\"minutes\":12,\"month\":3,\"seconds\":35,\"time\":1397567555268,\"timezoneOffset\":-120,\"year\":114},\"nome\":\"Nome -20\",\"document\":\"Documento -20\"},\"-19\":{\"_id\":-19,\"data\":{\"date\":15,\"day\":2,\"hours\":15,\"minutes\":12,\"month\":3,\"seconds\":35,\"time\":1397567555268,\"timezoneOffset\":-120,\"year\":114},\"nome\":\"Nome -19\",\"document\":\"Documento -19\"},\"-18\":{\"_id\":-18,\"data\":{\"date\":15,\"day\":2,\"hours\":15,\"minutes\":12,\"month\":3,\"seconds\":35,\"time\":1397567555268,\"timezoneOffset\":-120,\"year\":114},\"nome\":\"Nome -18\",\"document\":\"Documento -18\"},\"-17\":{\"_id\":-17,\"data\":{\"date\":15,\"day\":2,\"hours\":15,\"minutes\":12,\"month\":3,\"seconds\":35,\"time\":1397567555268,\"timezoneOffset\":-120,\"year\":114},\"nome\":\"Nome -17\",\"document\":\"Documento -17\"},\"-16\":{\"_id\":-16,\"data\":{\"date\":15,\"day\":2,\"hours\":15,\"minutes\":12,\"month\":3,\"seconds\":35,\"time\":1397567555268,\"timezoneOffset\":-120,\"year\":114},\"nome\":\"Nome -16\",\"document\":\"Documento -16\"}}}";
@@ -45,14 +45,14 @@
 		// echo fgets($sock, 4096);
 
 		// fclose($sock);
-	} else if($_GET['operazione'] == 0) {
-		if(isset($_GET['dedicaNome'])) {
-			$data = $data . "&dedicaNome=" . urlencode($_GET['dedicaNome']);
+	} else if($_POST['operazione'] == 0) {
+		if(isset($_POST['dedicaNome'])) {
+			$data = $data . "&dedicaNome=" . urlencode($_POST['dedicaNome']);
 		} else {
 			die("$errstr ($errno)\n");
 		}
-		if(isset($_GET['dedicaMessaggio'])) {
-			$data = $data . "&dedicaMessaggio=" . urlencode($_GET['dedicaMessaggio']);
+		if(isset($_POST['dedicaMessaggio'])) {
+			$data = $data . "&dedicaMessaggio=" . urlencode($_POST['dedicaMessaggio']);
 		} else {
 			die("$errstr ($errno)\n");
 		}

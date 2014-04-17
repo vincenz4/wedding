@@ -22,6 +22,10 @@
         <li class="{% cssactuallink organizziamoci_calabria %}">
             <a href="{% hreflink organizziamoci_calabria, organizziamoci_calabria.php%}">La Calabria da scoprire</a>
         </li>
+        <li class="divider"></li>
+        <li class="{% cssactuallink organizziamoci_calabria %}">
+            <a href="javascript:viewPianta()">La mappa completa</a>
+        </li>
     </ul>
 </li>
 <li class="{% cssactuallink istantanee %}">
@@ -31,7 +35,7 @@
     <a href="{% hreflink lista-nozze, lista-nozze.php %}">Lista Nozze</a>
 </li>
 <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Angolo della Posta<span class="caret"></span></a>
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Angolo della posta<span class="caret"></span></a>
     <ul class="dropdown-menu" role="menu">
         <li class="{% cssactuallink posta %}">
             <a href="{% hreflink posta, posta.php %}">Contattaci</a>
@@ -42,6 +46,9 @@
     </ul>
 </li>
 
-<!--li class="{% cssactuallink posta %}">
-    <a href="{% hreflink posta, posta.php %}">Angolo della posta</a>
-</li-->
+<script type="text/javascript">
+function viewPianta(){
+    // $('#piantinaDialog').modal('show');
+    window.open('static/img/mappa-stampa.png','_blank','height=369,width=765,location=0,titlebar=0');
+}
+</script>

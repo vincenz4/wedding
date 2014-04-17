@@ -111,20 +111,28 @@
 				}
 			},
 			submitHandler: function (form) {
-	            // form validates so do the ajax
-	            
-			    $.getJSON('proxy.php?operazione=0&'+$('#dedica-form').serialize(), function(data){
-		        	var testo;
-		        	
-		        	//console.log(data);
+				var obj = new Object();
+				obj.operazione = '0';
+				obj.dedicaNome = $('#iDedicaNome').val();
+				obj.dedicaMessaggio = $('#iDedicaMessaggio').val();
 
-		        	<!-- console.log("Stato del messaggio: " + data.status); -->
+				console.log(obj);
+
+				$.ajax({
+					type: "POST",
+					url: 'proxy.php',
+					data: obj,
+				  	async: true,
+				  	dataType: 'json'
+				}).done(function(data) {
+		        	var testo;
+		        	console.log(data);
+
 					//Nascondo il bottone invio
 					$('#btnDedicaInvio').hide();
 
 		        	if(data.status == '0'){
 		          		testo = "<div id=\"idAlert\" class=\"alert alert-success\">";
-		          		<!-- $('#btnInvio').prop('disabled', true); -->
 		        	} else {
 		          		testo = "<div id=\"idAlert\" class=\"alert alert-error\">";
 		        	}
@@ -139,7 +147,7 @@
 						$('#iDedicaMessaggio').val('');
 					});
 					aggiornaDediche();
-			    });
+				});
 
             	return false; // ajax used, block the normal submit
 	        },	
@@ -156,12 +164,22 @@
 
 	function getDediche() {
 		if( !ended ){
-			var chiamata = 'proxy.php?operazione=1&occorrenze='+occorrenze;
+			var obj = new Object();
+			obj.operazione = '1';
+			obj.occorrenze = occorrenze;
+
 			if(started){
-				chiamata += '&da='+from;
+				obj.da = from;
 			}
-			//console.log(chiamata);	
-			$.getJSON(chiamata, function(data){
+			//console.log(obj);
+
+			$.ajax({
+				type: "POST",
+				url: 'proxy.php',
+				data: obj,
+			  	async: false,
+			  	dataType: 'json'
+			}).done(function(data) {
 				var testo;
 
 			    started = 1;

@@ -25,23 +25,28 @@
 		{% endif %}
 	    <link href='./static/css/wedding.css' rel='stylesheet' type='text/css'>
 		<!--[if lt IE 7]><link rel="stylesheet" href="./static/css/bootstrap-ie6.css"><![endif]-->
+
 		{% block styles %}
 		{% endblock styles %}
 
 	</head>
 
 	<body style="background-image:url(./static/img/background_ligth.jpg); background-repeat: no-repeat; background-position: center;background-attachment:fixed;padding-top: 0px;">
+		<div class=”screen”>
+			{% block beforeContainer %}
+			{% endblock beforeContainer %}
 
-		{% block beforeContainer %}
-		{% endblock beforeContainer %}
+		    <div class="container">
+				{% block container %}
+				{% endblock container %}
+			</div>
 
-	    <div class="container">
-			{% block container %}
-			{% endblock container %}
+			{% block afterContainer %}
+			{% endblock afterContainer %}	
 		</div>
 
-		{% block afterContainer %}
-		{% endblock afterContainer %}	
+		<div class="printable">
+		</div>
 
 		{% if DEBUG_ENABLE %}
 		    <script src="./static/js/jquery-1.9.1.js"></script>

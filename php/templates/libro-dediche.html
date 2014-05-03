@@ -56,6 +56,7 @@
 	    <script src="./static/js/jquery-ui-1.10.4.custom.min.js"></script>
 	{% endif %}
 	<script src="./static/js/jquery.validate.min.js"></script>
+	<script src="./static/js/moment-with-langs.min.js"></script>
 {% endblock addonscripts %}
 
 {% block scripts %}
@@ -69,6 +70,8 @@
 	var ended = 0;
 
 	function initPage(){
+		moment.lang('it');
+
 		getDediche();
 
 		$('#dedica-form').validate({
@@ -187,7 +190,6 @@
 				//console.log(data.pagine);
 				//console.log(data.paginaCorrente);
 				//console.log(data.dediche);
-
 				var testo = "";
 				var conta = 0;
 				for(obj in data.dediche){
@@ -196,8 +198,9 @@
 					//console.log(dData);
 					//console.log(data.dediche[obj].document);
 					//console.log(data.dediche[obj].nome);
+					var dayWrapper = moment(dData);
 					testo += "<div class=\"well font_7\">";	
-					testo += "	<p class=\"pull-right\"><small>"+dData.toLocaleString()+"</small></p>";
+					testo += "	<p class=\"pull-right\"><small>"+dayWrapper.format('D MMMM YYYY')+"</small></p>";
 					testo += "	<br/>";
 					testo += "	<p class=\"font_7\">"+data.dediche[obj].document+"</p>";
 					testo += "	<br/>";
